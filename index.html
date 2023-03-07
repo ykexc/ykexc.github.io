@@ -330,7 +330,7 @@
       
       <a class="index-excerpt " href="/2023/02/27/Docker%E4%BD%BF%E7%94%A8/" target="_self">
         <div>
-          Docker基本用法 将当前用户添加到docker用户组 为了避免每次使用docker命令都需要加上sudo权限，可以将当前用户加入安装中自动创建的docker用户组(可以参考官方文档)： 1sudo usermod -aG docker $USER 执行完此操作后，需要退出服务器，再重新登录回来，才可以省去sudo权限。 镜像（images）  docker pull ubuntu:20.04：
+          Docker基本用法 将当前用户添加到docker用户组 为了避免每次使用docker命令都需要加上sudo权限，可以将当前用户加入安装中自动创建的docker用户组(可以参考官方文档)： 123456789101112131415sudo usermod -aG docker $USER# 如果不行可以试试这个#创建docker组weiyj@ubuntu18:~$ sudo groupadd d
         </div>
       </a>
 
