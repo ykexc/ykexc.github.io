@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://image.itbaima.net/images/76/image-20230925003386301.jpeg">
 <meta property="article:published_time" content="2023-09-24T16:22:25.000Z">
-<meta property="article:modified_time" content="2023-09-24T16:27:18.106Z">
+<meta property="article:modified_time" content="2023-10-09T14:29:46.061Z">
 <meta property="article:author" content="ykexc">
 <meta property="article:tag" content="计网">
 <meta name="twitter:card" content="summary_large_image">
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          10k 字
+          11k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          88 分钟
+          91 分钟
         
       </span>
     
@@ -697,6 +697,12 @@
 </ul>
 <h3 id="OAUTH2">OAUTH2</h3>
 <p>OAuth2.0介绍 OAuth（Open Authorization）是一个关于授权（authorization）的开放网络标准，允许用户授权第三方 应用访问他们存储在另外的服务提供者上的信息，而不需要将用户名和密码提供给第三方移动应用或分享他 们数据的所有内容。OAuth在全世界得到广泛应用，目前的版本是2.0版。</p>
+<p>授权码模式:</p>
+<p>一般有四个角色:客户端，服务端，第三方授权服务端，第三方资源服务器</p>
+<p>1.当点击QQ登录的时候，客户端会向服务端(一般有个apply_code的接口发起请求)。</p>
+<p>2.服务端会向客户端返回一个url,其中url的参数有response_type=code,因为是授权码模式,client_id=appId,就是自己提前已经申请好了的，redirect_uri=url重定向的url,state=state防止csrf攻击</p>
+<p>3.客户端收到这个url后会跳转到这个url(访问授权服务器),然后屏幕上就会出现你是否同意登录xxx</p>
+<p>4.如果选择了同意,那么客户端会被重定向到url,并且且附带一个授权码和之前传过去的state,然后客户端会将这个传给服务端，服务端通过授权码向认证服务器请求access_token，申请得到access_token后就可以向资源服务器申请用户信息资源。</p>
 
                 
               </div>
