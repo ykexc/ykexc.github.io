@@ -1,0 +1,703 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.acwing.com/media/user/profile/photo/196275_lg_23593e701b.jpeg">
+  <link rel="icon" href="https://cdn.acwing.com/media/user/profile/photo/196275_lg_23593e701b.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ykexc">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="二维偏序 2736. 最大和查询 给你两个长度为 n 、下标从 0 开始的整数数组 nums1 和 nums2 ，另给你一个下标从 1 开始的二维数组 queries ，其中 queries[i] &#x3D; [xi, yi] 。 对于第 i 个查询，在所有满足 nums1[j] &gt;&#x3D; xi 且 nums2[j] &gt;&#x3D; yi 的下标 j (0 &lt;&#x3D; j &lt; n) 中，找出 nums">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二维偏序">
+<meta property="og:url" content="http://example.com/2023/11/17/%E4%BA%8C%E7%BB%B4%E5%81%8F%E5%BA%8F/index.html">
+<meta property="og:site_name" content="ykexc">
+<meta property="og:description" content="二维偏序 2736. 最大和查询 给你两个长度为 n 、下标从 0 开始的整数数组 nums1 和 nums2 ，另给你一个下标从 1 开始的二维数组 queries ，其中 queries[i] &#x3D; [xi, yi] 。 对于第 i 个查询，在所有满足 nums1[j] &gt;&#x3D; xi 且 nums2[j] &gt;&#x3D; yi 的下标 j (0 &lt;&#x3D; j &lt; n) 中，找出 nums">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.itbaima.net/images/76/image-20231117139594923.jpeg">
+<meta property="article:published_time" content="2023-11-17T04:44:52.000Z">
+<meta property="article:modified_time" content="2023-11-17T05:44:22.385Z">
+<meta property="article:author" content="ykexc">
+<meta property="article:tag" content="杂项">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://image.itbaima.net/images/76/image-20231117139594923.jpeg">
+  
+  
+  
+  <title>二维偏序 - ykexc</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ykexc</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://image.itbaima.net/images/76/image-20231117139594923.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="二维偏序"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-17 12:44" pubdate>
+          2023年11月17日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">二维偏序</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1>二维偏序</h1>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-sum-queries/">2736. 最大和查询</a></p>
+<p>给你两个长度为 <code>n</code> 、下标从 <strong>0</strong> 开始的整数数组 <code>nums1</code> 和 <code>nums2</code> ，另给你一个下标从 <strong>1</strong> 开始的二维数组 <code>queries</code> ，其中 <code>queries[i] = [xi, yi]</code> 。</p>
+<p>对于第 <code>i</code> 个查询，在所有满足 <code>nums1[j] &gt;= xi</code> 且 <code>nums2[j] &gt;= yi</code> 的下标 <code>j</code> <code>(0 &lt;= j &lt; n)</code> 中，找出 <code>nums1[j] + nums2[j]</code> 的 <strong>最大值</strong> ，如果不存在满足条件的 <code>j</code> 则返回 <strong>-1</strong> 。</p>
+<p>返回数组 <code>answer</code> *，*其中 <code>answer[i]</code> 是第 <code>i</code> 个查询的答案。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：nums1 = [4,3,1,2], nums2 = [2,4,9,5], queries = [[4,1],[1,3],[2,5]]<br>输出：[6,10,7]<br>解释：<br>对于第<span class="hljs-number"> 1 </span>个查询：xi =<span class="hljs-number"> 4 </span>且 yi =<span class="hljs-number"> 1 </span>，可以选择下标 j =<span class="hljs-number"> 0 </span>，此时 nums1[j] &gt;=<span class="hljs-number"> 4 </span>且 nums2[j] &gt;=<span class="hljs-number"> 1 </span>。nums1[j] + nums2[j] 等于<span class="hljs-number"> 6 </span>，可以证明<span class="hljs-number"> 6 </span>是可以获得的最大值。<br>对于第<span class="hljs-number"> 2 </span>个查询：xi =<span class="hljs-number"> 1 </span>且 yi =<span class="hljs-number"> 3 </span>，可以选择下标 j =<span class="hljs-number"> 2 </span>，此时 nums1[j] &gt;=<span class="hljs-number"> 1 </span>且 nums2[j] &gt;=<span class="hljs-number"> 3 </span>。nums1[j] + nums2[j] 等于<span class="hljs-number"> 10 </span>，可以证明<span class="hljs-number"> 10 </span>是可以获得的最大值。<br>对于第<span class="hljs-number"> 3 </span>个查询：xi =<span class="hljs-number"> 2 </span>且 yi =<span class="hljs-number"> 5 </span>，可以选择下标 j =<span class="hljs-number"> 3 </span>，此时 nums1[j] &gt;=<span class="hljs-number"> 2 </span>且 nums2[j] &gt;=<span class="hljs-number"> 5 </span>。nums1[j] + nums2[j] 等于<span class="hljs-number"> 7 </span>，可以证明<span class="hljs-number"> 7 </span>是可以获得的最大值。<br>因此，我们返回 [6,10,7] 。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：nums1 = <span class="hljs-comment">[3,2,5]</span>, nums2 = <span class="hljs-comment">[2,3,4]</span>, queries = <span class="hljs-comment">[<span class="hljs-comment">[4,4]</span>,<span class="hljs-comment">[3,2]</span>,<span class="hljs-comment">[1,1]</span>]</span><br>输出：<span class="hljs-comment">[9,9,9]</span><br>解释：对于这个示例，我们可以选择下标 j = 2 ，该下标可以满足每个查询的限制。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 3：</strong></p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：nums1 = <span class="hljs-comment">[2,1]</span>, nums2 = <span class="hljs-comment">[2,3]</span>, queries = <span class="hljs-comment">[<span class="hljs-comment">[3,3]</span>]</span><br>输出：<span class="hljs-comment">[-1]</span><br>解释：示例中的查询 xi = 3 且 yi = 3 。对于每个下标 j ，都只满足 nums1<span class="hljs-comment">[j]</span> &lt; xi 或者 nums2<span class="hljs-comment">[j]</span> &lt; yi 。因此，不存在答案。 <br></code></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>nums1.length == nums2.length</code></li>
+<li><code>n == nums1.length </code></li>
+<li><code>1 &lt;= n &lt;= 105</code></li>
+<li><code>1 &lt;= nums1[i], nums2[i] &lt;= 109 </code></li>
+<li><code>1 &lt;= queries.length &lt;= 105</code></li>
+<li><code>queries[i].length == 2</code></li>
+<li><code>xi == queries[i][1]</code></li>
+<li><code>yi == queries[i][2]</code></li>
+<li><code>1 &lt;= xi, yi &lt;= 109</code></li>
+</ul>
+<p>二位偏序问题。</p>
+<ul>
+<li>
+<p>什么是偏序?</p>
+<p>形式上，偏序关系满足以下性质：</p>
+<ol>
+<li>自反性（Reflexivity）：对于任意元素x，都有x ≤ x。</li>
+<li>反对称性（Antisymmetry）：对于任意元素x和y，如果x ≤ y且y ≤ x，则x = y。</li>
+<li>传递性（Transitivity）：对于任意元素x、y和z，如果x ≤ y且y ≤ z，则x ≤ z。</li>
+</ol>
+</li>
+<li>
+<p>什么是二维偏序问题?</p>
+<p><strong>二维偏序问题</strong>（Two-dimensional Partial Order Problem）是指在一个包含两个维度的数据集中，寻找一种线性排序方法来满足特定的约束条件。这种问题是组合优化和离散数学领域的一个经典问题。</p>
+<p>在二维偏序问题中，我们通常需要找到一个排列 <code>P</code> 来对数据集进行排序，使得每个元素 <code>(x, y)</code> 满足以下关系：</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm">(<span class="hljs-keyword">x</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span> y<span class="hljs-number">1</span>) &lt;<span class="hljs-operator">=</span> (<span class="hljs-keyword">x</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span> y<span class="hljs-number">2</span>) if <span class="hljs-keyword">x</span><span class="hljs-number">1</span> &lt; <span class="hljs-keyword">x</span><span class="hljs-number">2</span> <span class="hljs-keyword">or</span> (<span class="hljs-keyword">x</span><span class="hljs-number">1</span> <span class="hljs-operator">=</span><span class="hljs-operator">=</span> <span class="hljs-keyword">x</span><span class="hljs-number">2</span> <span class="hljs-keyword">and</span> y<span class="hljs-number">1</span> &lt;<span class="hljs-operator">=</span> y<span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
+<p>换句话说，如果一个元素的横坐标值较小或者纵坐标值也小于等于另一个元素的对应坐标时，那么这个元素必须在前面。</p>
+</li>
+</ul>
+<p>对于常规的二维偏序问题的解法为: 先排序<code>一维</code>，再树状数组维护第二维。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maximumSumQueries</span>(<span class="hljs-params">self, nums1: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], nums2: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], queries: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        arr = <span class="hljs-built_in">sorted</span>(<span class="hljs-built_in">set</span>(nums2 + [y <span class="hljs-keyword">for</span> _, y <span class="hljs-keyword">in</span> queries]))<br>        mp = &#123;v: idx + <span class="hljs-number">1</span> <span class="hljs-keyword">for</span> idx, v <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(arr)&#125; <span class="hljs-comment"># 离散化</span><br>        sz = <span class="hljs-built_in">len</span>(arr) + <span class="hljs-number">1</span><br><br>        tree = [-<span class="hljs-number">1</span>] * (<span class="hljs-built_in">len</span>(nums1) + sz + <span class="hljs-number">1</span>)<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">low_bit</span>(<span class="hljs-params">x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>            <span class="hljs-keyword">return</span> x &amp; -x<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">x: <span class="hljs-built_in">int</span>, v: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">while</span> x &lt; <span class="hljs-built_in">len</span>(tree):<br>                tree[x] = <span class="hljs-built_in">max</span>(tree[x], v)<br>                x += low_bit(x)<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">get</span>(<span class="hljs-params">x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>            ans = -<span class="hljs-number">10</span> ** <span class="hljs-number">9</span><br>            <span class="hljs-keyword">while</span> x &gt; <span class="hljs-number">0</span>:<br>                ans = <span class="hljs-built_in">max</span>(ans, tree[x])<br>                x -= low_bit(x)<br>            <span class="hljs-keyword">return</span> ans<br><br>        s1 = <span class="hljs-built_in">sorted</span>([(x, y) <span class="hljs-keyword">for</span> x, y <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(nums1, nums2)], key=<span class="hljs-keyword">lambda</span> e: -e[<span class="hljs-number">0</span>])<br>        s2 = <span class="hljs-built_in">sorted</span>([(x, sz - mp[y], i) <span class="hljs-keyword">for</span> i, (x, y) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(queries)], key=<span class="hljs-keyword">lambda</span> e: -e[<span class="hljs-number">0</span>])<br><br>        ans = [<span class="hljs-number">0</span>] * <span class="hljs-built_in">len</span>(queries)<br>        j = <span class="hljs-number">0</span><br><br>        <span class="hljs-keyword">for</span> i, (x, y, idx) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(s2):<br>            <span class="hljs-keyword">while</span> j &lt; <span class="hljs-built_in">len</span>(s1) <span class="hljs-keyword">and</span> s1[j][<span class="hljs-number">0</span>] &gt;= x:<br>                s, v = <span class="hljs-built_in">sum</span>(s1[j]), sz - mp[s1[j][<span class="hljs-number">1</span>]]  <span class="hljs-comment">#把符合的都加进去</span><br>                add(v, s)<br>                j += <span class="hljs-number">1</span><br>            ans[idx] = get(y)<br><br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%9D%82%E9%A1%B9/">#杂项</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>二维偏序</div>
+      <div>http://example.com/2023/11/17/二维偏序/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ykexc</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月17日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/12/LeetCode-371/" title="LeetCode-371">
+                        <span class="hidden-mobile">LeetCode-371</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
