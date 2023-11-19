@@ -1,0 +1,734 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.acwing.com/media/user/profile/photo/196275_lg_23593e701b.jpeg">
+  <link rel="icon" href="https://cdn.acwing.com/media/user/profile/photo/196275_lg_23593e701b.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ykexc">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Q1 100131. 使三个字符串相等 给你三个字符串 s1、s2 和 s3。 你可以根据需要对这三个字符串执行以下操作 任意次数 。 在每次操作中，你可以选择其中一个长度至少为 2 的字符串 并删除其 最右位置上 的字符。 如果存在某种方法能够使这三个字符串相等，请返回使它们相等所需的 最小 操作次数；否则，返回 -1。 示例 1： 1234输入：s1 &#x3D; &quot;abc&quot;，s2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode-372">
+<meta property="og:url" content="http://example.com/2023/11/19/LeetCode-372/index.html">
+<meta property="og:site_name" content="ykexc">
+<meta property="og:description" content="Q1 100131. 使三个字符串相等 给你三个字符串 s1、s2 和 s3。 你可以根据需要对这三个字符串执行以下操作 任意次数 。 在每次操作中，你可以选择其中一个长度至少为 2 的字符串 并删除其 最右位置上 的字符。 如果存在某种方法能够使这三个字符串相等，请返回使它们相等所需的 最小 操作次数；否则，返回 -1。 示例 1： 1234输入：s1 &#x3D; &quot;abc&quot;，s2">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ykexc-1314584214.cos.ap-nanjing.myqcloud.com/yy26.jpg">
+<meta property="article:published_time" content="2023-11-19T15:35:53.000Z">
+<meta property="article:modified_time" content="2023-11-19T15:40:49.392Z">
+<meta property="article:author" content="ykexc">
+<meta property="article:tag" content="leetcode">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ykexc-1314584214.cos.ap-nanjing.myqcloud.com/yy26.jpg">
+  
+  
+  
+  <title>LeetCode-372 - ykexc</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ykexc</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://ykexc-1314584214.cos.ap-nanjing.myqcloud.com/yy26.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="LeetCode-372"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-19 23:35" pubdate>
+          2023年11月19日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          46 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">LeetCode-372</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="Q1">Q1</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/make-three-strings-equal/">100131. 使三个字符串相等</a></p>
+<p>给你三个字符串 <code>s1</code>、<code>s2</code> 和 <code>s3</code>。 你可以根据需要对这三个字符串执行以下操作 <strong>任意次数</strong> 。</p>
+<p>在每次操作中，你可以选择其中一个长度至少为 <code>2</code> 的字符串 并删除其 <strong>最右位置上</strong> 的字符。</p>
+<p>如果存在某种方法能够使这三个字符串相等，请返回使它们相等所需的 <strong>最小</strong> 操作次数；否则，返回 <code>-1</code>。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs armasm">输入：<span class="hljs-built_in">s1</span> = <span class="hljs-string">&quot;abc&quot;</span>，<span class="hljs-built_in">s2</span> = <span class="hljs-string">&quot;abb&quot;</span>，<span class="hljs-built_in">s3</span> = <span class="hljs-string">&quot;ab&quot;</span><br>输出：<span class="hljs-number">2</span><br>解释：对 <span class="hljs-built_in">s1</span> 和 <span class="hljs-built_in">s2</span> 进行一次操作后，可以得到三个相等的字符串。<br>可以证明，不可能用少于两次操作使它们相等。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs armasm">输入：<span class="hljs-built_in">s1</span> = <span class="hljs-string">&quot;dac&quot;</span>，<span class="hljs-built_in">s2</span> = <span class="hljs-string">&quot;bac&quot;</span>，<span class="hljs-built_in">s3</span> = <span class="hljs-string">&quot;cac&quot;</span><br>输出：-<span class="hljs-number">1</span><br>解释：因为 <span class="hljs-built_in">s1</span> 和 <span class="hljs-built_in">s2</span> 的最左位置上的字母不相等，所以无论进行多少次操作，它们都不可能相等。因此答案是 -<span class="hljs-number">1</span> 。<br></code></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s1.length, s2.length, s3.length &lt;= 100</code></li>
+<li><code>s1</code>、<code>s2</code> 和 <code>s3</code> 仅由小写英文字母组成。</li>
+</ul>
+<p>直接模拟找到最左匹配即可</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">findMinimumOperations</span>(<span class="hljs-params">self, s1: <span class="hljs-built_in">str</span>, s2: <span class="hljs-built_in">str</span>, s3: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> s1[<span class="hljs-number">0</span>] != s2[<span class="hljs-number">0</span>] <span class="hljs-keyword">or</span> s1[<span class="hljs-number">0</span>] != s3[<span class="hljs-number">0</span>] <span class="hljs-keyword">or</span> s2[<span class="hljs-number">0</span>] != s3[<span class="hljs-number">0</span>]:<br>            <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br>        n = <span class="hljs-built_in">min</span>(<span class="hljs-built_in">len</span>(s1), <span class="hljs-built_in">len</span>(s2), <span class="hljs-built_in">len</span>(s3))<br>        i = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">while</span> i &lt; n <span class="hljs-keyword">and</span> s1[i] == s2[i] == s3[i]:<br>            i += <span class="hljs-number">1</span><br>        ans = <span class="hljs-number">0</span><br>        ans += <span class="hljs-built_in">len</span>(s1) - i<br>        ans += <span class="hljs-built_in">len</span>(s2) - i<br>        ans += <span class="hljs-built_in">len</span>(s3) - i<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+<h3 id="Q2">Q2</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/separate-black-and-white-balls/">100122. 区分黑球与白球</a></p>
+<p>桌子上有 <code>n</code> 个球，每个球的颜色不是黑色，就是白色。</p>
+<p>给你一个长度为 <code>n</code> 、下标从 <strong>0</strong> 开始的二进制字符串 <code>s</code>，其中 <code>1</code> 和 <code>0</code> 分别代表黑色和白色的球。</p>
+<p>在每一步中，你可以选择两个相邻的球并交换它们。</p>
+<p>返回「将所有黑色球都移到右侧，所有白色球都移到左侧所需的 <strong>最小步数</strong>」。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs abnf">输入：s <span class="hljs-operator">=</span> <span class="hljs-string">&quot;101&quot;</span><br>输出：<span class="hljs-number">1</span><br>解释：我们可以按以下方式将所有黑色球移到右侧：<br>- 交换 s[<span class="hljs-number">0</span>] 和 s[<span class="hljs-number">1</span>]，s <span class="hljs-operator">=</span> <span class="hljs-string">&quot;011&quot;</span>。<br>最开始，<span class="hljs-number">1</span> 没有都在右侧，需要至少 <span class="hljs-number">1</span> 步将其移到右侧。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs prolog">输入：s = <span class="hljs-string">&quot;100&quot;</span><br>输出：<span class="hljs-number">2</span><br>解释：我们可以按以下方式将所有黑色球移到右侧：<br>- 交换 s[<span class="hljs-number">0</span>] 和 s[<span class="hljs-number">1</span>]，s = <span class="hljs-string">&quot;010&quot;</span>。<br>- 交换 s[<span class="hljs-number">1</span>] 和 s[<span class="hljs-number">2</span>]，s = <span class="hljs-string">&quot;001&quot;</span>。<br>可以证明所需的最小步数为 <span class="hljs-number">2</span> 。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 3：</strong></p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs abnf">输入：s <span class="hljs-operator">=</span> <span class="hljs-string">&quot;0111&quot;</span><br>输出：<span class="hljs-number">0</span><br>解释：所有黑色球都已经在右侧。<br></code></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= n == s.length &lt;= 105</code></li>
+<li><code>s[i]</code> 不是 <code>'0'</code>，就是 <code>'1'</code>。</li>
+</ul>
+<p>本质上就是求逆序对，但是我没有直接想到，我想到的是一个模拟的过程，大致思想如下图。</p>
+<p><img src="https://ykexc-1314584214.cos.ap-nanjing.myqcloud.com/lc372-2.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">minimumSteps</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        c = Counter(<span class="hljs-built_in">list</span>(s))<br>        zero = c[<span class="hljs-string">&#x27;0&#x27;</span>]<br>        one = c[<span class="hljs-string">&#x27;1&#x27;</span>]<br>        <span class="hljs-built_in">print</span>(one, zero)<br>        ans = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(zero):<br>            <span class="hljs-keyword">if</span> s[i] == <span class="hljs-string">&#x27;1&#x27;</span>:<br>                ans += zero - i<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s) - <span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(s) - one - <span class="hljs-number">1</span>, -<span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">if</span> s[j] == <span class="hljs-string">&#x27;0&#x27;</span>:<br>                ans += (j - <span class="hljs-built_in">len</span>(s) + one)<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+<h3 id="Q3">Q3</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-xor-product/">100119. 最大异或乘积</a></p>
+<p>给你三个整数 <code>a</code> ，<code>b</code> 和 <code>n</code> ，请你返回 <code>(a XOR x) * (b XOR x)</code> 的 <strong>最大值</strong> 且 <code>x</code> 需要满足 <code>0 &lt;= x &lt; 2n</code>。</p>
+<p>由于答案可能会很大，返回它对 <code>109 + 7</code> <strong>取余</strong> 后的结果。</p>
+<p><strong>注意</strong>，<code>XOR</code> 是按位异或操作。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">输入：a = <span class="hljs-number">12</span>, <span class="hljs-keyword">b </span>= <span class="hljs-number">5</span>, n = <span class="hljs-number">4</span><br>输出：<span class="hljs-number">98</span><br>解释：当 x = <span class="hljs-number">2</span> 时，(a <span class="hljs-keyword">XOR </span>x) = <span class="hljs-number">14</span> 且 (<span class="hljs-keyword">b </span><span class="hljs-keyword">XOR </span>x) = <span class="hljs-number">7</span> 。所以，(a <span class="hljs-keyword">XOR </span>x) * (<span class="hljs-keyword">b </span><span class="hljs-keyword">XOR </span>x) = <span class="hljs-number">98</span> 。<br><span class="hljs-number">98</span> 是所有满足 <span class="hljs-number">0</span> &lt;= x &lt; <span class="hljs-number">2</span>n 中 (a <span class="hljs-keyword">XOR </span>x) * (<span class="hljs-keyword">b </span><span class="hljs-keyword">XOR </span>x) 的最大值。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">输入：a = <span class="hljs-number">6</span>, <span class="hljs-keyword">b </span>= <span class="hljs-number">7</span> , n = <span class="hljs-number">5</span><br>输出：<span class="hljs-number">930</span><br>解释：当 x = <span class="hljs-number">25</span> 时，(a <span class="hljs-keyword">XOR </span>x) = <span class="hljs-number">31</span> 且 (<span class="hljs-keyword">b </span><span class="hljs-keyword">XOR </span>x) = <span class="hljs-number">30</span> 。所以，(a <span class="hljs-keyword">XOR </span>x) * (<span class="hljs-keyword">b </span><span class="hljs-keyword">XOR </span>x) = <span class="hljs-number">930</span> 。<br><span class="hljs-number">930</span> 是所有满足 <span class="hljs-number">0</span> &lt;= x &lt; <span class="hljs-number">2</span>n 中 (a <span class="hljs-keyword">XOR </span>x) * (<span class="hljs-keyword">b </span><span class="hljs-keyword">XOR </span>x) 的最大值。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 3：</strong></p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">输入：a = <span class="hljs-number">1</span>, <span class="hljs-keyword">b </span>= <span class="hljs-number">6</span>, n = <span class="hljs-number">3</span><br>输出：<span class="hljs-number">12</span><br>解释： 当 x = <span class="hljs-number">5</span> 时，(a <span class="hljs-keyword">XOR </span>x) = <span class="hljs-number">4</span> 且 (<span class="hljs-keyword">b </span><span class="hljs-keyword">XOR </span>x) = <span class="hljs-number">3</span> 。所以，(a <span class="hljs-keyword">XOR </span>x) * (<span class="hljs-keyword">b </span><span class="hljs-keyword">XOR </span>x) = <span class="hljs-number">12</span> 。<br><span class="hljs-number">12</span> 是所有满足 <span class="hljs-number">0</span> &lt;= x &lt; <span class="hljs-number">2</span>n 中 (a <span class="hljs-keyword">XOR </span>x) * (<span class="hljs-keyword">b </span><span class="hljs-keyword">XOR </span>x) 的最大值。<br></code></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>0 &lt;= a, b &lt; 250</code></li>
+<li><code>0 &lt;= n &lt;= 50</code></li>
+</ul>
+<p>贪心思想，不知道该怎样证明。从低到高只要能将结果变大就要这位，要么不要，还有一种就是从高位到低位哪个小就给哪个异或。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maximumXorProduct</span>(<span class="hljs-params">self, a: <span class="hljs-built_in">int</span>, b: <span class="hljs-built_in">int</span>, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        MOD = <span class="hljs-number">10</span> ** <span class="hljs-number">9</span> + <span class="hljs-number">7</span><br>        result = a * b<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>            xx, yy = a ^ (<span class="hljs-number">1</span> &lt;&lt; i), b ^ (<span class="hljs-number">1</span> &lt;&lt; i)<br>            <span class="hljs-keyword">if</span> xx * yy &gt; a * b:<br>                a, b = xx, yy<br>            result = <span class="hljs-built_in">max</span>(result, a * b)<br><br>        <span class="hljs-keyword">return</span> result % MOD<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maximumXorProduct</span><span class="hljs-params">(<span class="hljs-type">long</span> <span class="hljs-type">long</span> a, <span class="hljs-type">long</span> <span class="hljs-type">long</span> b, <span class="hljs-type">int</span> n)</span> </span>&#123;<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> MOD = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br>        <span class="hljs-comment">// 把输入数据大于等于第 n 位的部分先截出来，它们不受异或操作的影响</span><br>        <span class="hljs-type">long</span> <span class="hljs-type">long</span> p = (a &gt;&gt; n) &lt;&lt; n, q = (b &gt;&gt; n) &lt;&lt; n;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>            <span class="hljs-comment">// 看 a 和 b 第 i 位是否相同</span><br>            <span class="hljs-type">int</span> x = a &gt;&gt; i &amp; <span class="hljs-number">1</span>;<br>            <span class="hljs-type">int</span> y = b &gt;&gt; i &amp; <span class="hljs-number">1</span>;<br>            <span class="hljs-comment">// 相同则两者都可以获得一个 1</span><br>            <span class="hljs-keyword">if</span> (x == y) p |= <span class="hljs-number">1LL</span> &lt;&lt; i, q |= <span class="hljs-number">1LL</span> &lt;&lt; i;<br>            <span class="hljs-comment">// 不同则谁小谁获得 1</span><br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (p &lt; q) p |= <span class="hljs-number">1LL</span> &lt;&lt; i;<br>            <span class="hljs-keyword">else</span> q |= <span class="hljs-number">1LL</span> &lt;&lt; i;<br>        &#125;<br>        <span class="hljs-comment">// 先取个模防止乘法溢出</span><br>        p %= MOD;<br>        q %= MOD;<br>        <span class="hljs-keyword">return</span> p * q % MOD;<br>    &#125;<br>&#125;;<br><br>作者：TsReaper<br>链接：https:<span class="hljs-comment">//leetcode.cn/problems/maximum-xor-product/</span><br>来源：力扣（LeetCode）<br></code></pre></td></tr></table></figure>
+<h3 id="Q4">Q4</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-building-where-alice-and-bob-can-meet/">100110. 找到 Alice 和 Bob 可以相遇的建筑</a></p>
+<p>给你一个下标从 <strong>0</strong> 开始的正整数数组 <code>heights</code> ，其中 <code>heights[i]</code> 表示第 <code>i</code> 栋建筑的高度。</p>
+<p>如果一个人在建筑 <code>i</code> ，且存在 <code>i &lt; j</code> 的建筑 <code>j</code> 满足 <code>heights[i] &lt; heights[j]</code> ，那么这个人可以移动到建筑 <code>j</code> 。</p>
+<p>给你另外一个数组 <code>queries</code> ，其中 <code>queries[i] = [ai, bi]</code> 。第 <code>i</code> 个查询中，Alice 在建筑 <code>ai</code> ，Bob 在建筑 <code>bi</code> 。</p>
+<p>请你能返回一个数组 <code>ans</code> ，其中 <code>ans[i]</code> 是第 <code>i</code> 个查询中，Alice 和 Bob 可以相遇的 <strong>最左边的建筑</strong> 。如果对于查询 <code>i</code> ，Alice 和 Bob 不能相遇，令 <code>ans[i]</code> 为 <code>-1</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：heights = <span class="hljs-comment">[6,4,8,5,2,7]</span>, queries = <span class="hljs-comment">[<span class="hljs-comment">[0,1]</span>,<span class="hljs-comment">[0,3]</span>,<span class="hljs-comment">[2,4]</span>,<span class="hljs-comment">[3,4]</span>,<span class="hljs-comment">[2,2]</span>]</span><br>输出：<span class="hljs-comment">[2,5,-1,5,2]</span><br>解释：第一个查询中，Alice 和 Bob 可以移动到建筑 2 ，因为 heights<span class="hljs-comment">[0]</span> &lt; heights<span class="hljs-comment">[2]</span> 且 heights<span class="hljs-comment">[1]</span> &lt; heights<span class="hljs-comment">[2]</span> 。<br>第二个查询中，Alice 和 Bob 可以移动到建筑 5 ，因为 heights<span class="hljs-comment">[0]</span> &lt; heights<span class="hljs-comment">[5]</span> 且 heights<span class="hljs-comment">[3]</span> &lt; heights<span class="hljs-comment">[5]</span> 。<br>第三个查询中，Alice 无法与 Bob 相遇，因为 Alice 不能移动到任何其他建筑。<br>第四个查询中，Alice 和 Bob 可以移动到建筑 5 ，因为 heights<span class="hljs-comment">[3]</span> &lt; heights<span class="hljs-comment">[5]</span> 且 heights<span class="hljs-comment">[4]</span> &lt; heights<span class="hljs-comment">[5]</span> 。<br>第五个查询中，Alice 和 Bob 已经在同一栋建筑中。<br>对于 ans<span class="hljs-comment">[i]</span> != -1 ，ans<span class="hljs-comment">[i]</span> 是 Alice 和 Bob 可以相遇的建筑中最左边建筑的下标。<br>对于 ans<span class="hljs-comment">[i]</span> == -1 ，不存在 Alice 和 Bob 可以相遇的建筑。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：heights = <span class="hljs-comment">[5,3,8,2,6,1,4,6]</span>, queries = <span class="hljs-comment">[<span class="hljs-comment">[0,7]</span>,<span class="hljs-comment">[3,5]</span>,<span class="hljs-comment">[5,2]</span>,<span class="hljs-comment">[3,0]</span>,<span class="hljs-comment">[1,6]</span>]</span><br>输出：<span class="hljs-comment">[7,6,-1,4,6]</span><br>解释：第一个查询中，Alice 可以直接移动到 Bob 的建筑，因为 heights<span class="hljs-comment">[0]</span> &lt; heights<span class="hljs-comment">[7]</span> 。<br>第二个查询中，Alice 和 Bob 可以移动到建筑 6 ，因为 heights<span class="hljs-comment">[3]</span> &lt; heights<span class="hljs-comment">[6]</span> 且 heights<span class="hljs-comment">[5]</span> &lt; heights<span class="hljs-comment">[6]</span> 。<br>第三个查询中，Alice 无法与 Bob 相遇，因为 Bob 不能移动到任何其他建筑。<br>第四个查询中，Alice 和 Bob 可以移动到建筑 4 ，因为 heights<span class="hljs-comment">[3]</span> &lt; heights<span class="hljs-comment">[4]</span> 且 heights<span class="hljs-comment">[0]</span> &lt; heights<span class="hljs-comment">[4]</span> 。<br>第五个查询中，Alice 可以直接移动到 Bob 的建筑，因为 heights<span class="hljs-comment">[1]</span> &lt; heights<span class="hljs-comment">[6]</span> 。<br>对于 ans<span class="hljs-comment">[i]</span> != -1 ，ans<span class="hljs-comment">[i]</span> 是 Alice 和 Bob 可以相遇的建筑中最左边建筑的下标。<br>对于 ans<span class="hljs-comment">[i]</span> == -1 ，不存在 Alice 和 Bob 可以相遇的建筑。<br></code></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= heights.length &lt;= 5 * 104</code></li>
+<li><code>1 &lt;= heights[i] &lt;= 109</code></li>
+<li><code>1 &lt;= queries.length &lt;= 5 * 104</code></li>
+<li><code>queries[i] = [ai, bi]</code></li>
+<li><code>0 &lt;= ai, bi &lt;= heights.length - 1</code></li>
+</ul>
+<p>因为两人的顺序对结果无关，所以可以先对<code>ai</code>,<code>bi</code>进行排序，设<code>x</code>,<code>y</code>为两人位置, <code>x &lt;= y</code>,若<code>x == y</code>,则<code>ans[i] = x</code>,若<code>height[y] &gt; height[x]</code>则<code>ans[i] = y</code>,对于其他情况问题的转换就成了下标第一个大于<code>y</code>的坐标<code>z</code>且<code>height[z] &gt; height[x]</code>,这就成为了一个<code>二维偏序</code>问题，可以采用离线查询，按照<code>y</code>从到大到小排序，反向过滤height,利用树状数组就可以解决本问题。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">leftmostBuildingQueries</span>(<span class="hljs-params">self, heights: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], queries: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        n = <span class="hljs-built_in">len</span>(heights)<br>        m = <span class="hljs-built_in">len</span>(queries)<br>        tree = [inf] * (n + <span class="hljs-number">1</span>)<br>        ans = [<span class="hljs-number">0</span>] * m<br>        unique_queries = <span class="hljs-built_in">sorted</span>(<span class="hljs-built_in">list</span>(<span class="hljs-built_in">set</span>(heights)))<br>        query_map = &#123;e: idx + <span class="hljs-number">1</span> <span class="hljs-keyword">for</span> idx, e <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(unique_queries)&#125;  <span class="hljs-comment"># 离散化</span><br><br>        remaining_queries = []<br><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m):<br>            x, y = <span class="hljs-built_in">min</span>(queries[i]), <span class="hljs-built_in">max</span>(queries[i])<br>            <span class="hljs-keyword">if</span> x == y <span class="hljs-keyword">or</span> heights[y] &gt; heights[x]:<br>                ans[i] = y<br>            <span class="hljs-keyword">else</span>:<br>                remaining_queries.append((x, y, i))<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">low_bit</span>(<span class="hljs-params">a: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>            <span class="hljs-keyword">return</span> a &amp; -a<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">update</span>(<span class="hljs-params">i: <span class="hljs-built_in">int</span>, v: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">while</span> i &lt; <span class="hljs-built_in">len</span>(tree):<br>                tree[i] = <span class="hljs-built_in">min</span>(tree[i], v)<br>                i += low_bit(i)<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">get</span>(<span class="hljs-params">i: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>            ret = inf<br>            <span class="hljs-keyword">while</span> i &gt; <span class="hljs-number">0</span>:<br>                ret = <span class="hljs-built_in">min</span>(ret, tree[i])<br>                i -= low_bit(i)<br>            <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span> <span class="hljs-keyword">if</span> ret == inf <span class="hljs-keyword">else</span> ret<br><br>        remaining_queries.sort(key=<span class="hljs-keyword">lambda</span> e: e[<span class="hljs-number">1</span>], reverse=<span class="hljs-literal">True</span>)<br>        i = n - <span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">for</span> e <span class="hljs-keyword">in</span> remaining_queries:<br>            v, idx = <span class="hljs-built_in">len</span>(unique_queries) + <span class="hljs-number">1</span> - query_map[heights[e[<span class="hljs-number">0</span>]]], e[<span class="hljs-number">2</span>]<br>            <span class="hljs-keyword">while</span> i &gt; e[<span class="hljs-number">1</span>]:<br>                update(<span class="hljs-built_in">len</span>(unique_queries) + <span class="hljs-number">1</span> - query_map[heights[i]], i)<br>                i -= <span class="hljs-number">1</span><br>            ans[idx] = get(v - <span class="hljs-number">1</span>)<br><br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/leetcode/">#leetcode</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>LeetCode-372</div>
+      <div>http://example.com/2023/11/19/LeetCode-372/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ykexc</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月19日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/17/%E4%BA%8C%E7%BB%B4%E5%81%8F%E5%BA%8F/" title="二维偏序">
+                        <span class="hidden-mobile">二维偏序</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
