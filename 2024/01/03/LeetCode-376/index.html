@@ -1,0 +1,754 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.acwing.com/media/user/profile/photo/196275_lg_23593e701b.jpeg">
+  <link rel="icon" href="https://cdn.acwing.com/media/user/profile/photo/196275_lg_23593e701b.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ykexc">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本场两道题都与中位数有关，个人感觉第三题会比第四题难想一点，本场整体难度中等 Q1 找出缺失和重复的数字   给你一个下标从 0 开始的二维整数矩阵 grid，大小为 n * n ，其中的值在 [1, n2] 范围内。除了 a 出现 两次，b 缺失 之外，每个整数都 恰好出现一次 。 任务是找出重复的数字a 和缺失的数字 b 。 返回一个下标从 0 开始、长度为 2 的整数数组 ans ，其中 a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode-376">
+<meta property="og:url" content="http://example.com/2024/01/03/LeetCode-376/index.html">
+<meta property="og:site_name" content="ykexc">
+<meta property="og:description" content="本场两道题都与中位数有关，个人感觉第三题会比第四题难想一点，本场整体难度中等 Q1 找出缺失和重复的数字   给你一个下标从 0 开始的二维整数矩阵 grid，大小为 n * n ，其中的值在 [1, n2] 范围内。除了 a 出现 两次，b 缺失 之外，每个整数都 恰好出现一次 。 任务是找出重复的数字a 和缺失的数字 b 。 返回一个下标从 0 开始、长度为 2 的整数数组 ans ，其中 a">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.itbaima.cn/images/76/image-20240103114932957.jpeg">
+<meta property="article:published_time" content="2024-01-03T03:09:58.000Z">
+<meta property="article:modified_time" content="2024-01-03T03:44:06.062Z">
+<meta property="article:author" content="ykexc">
+<meta property="article:tag" content="leetcode">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://image.itbaima.cn/images/76/image-20240103114932957.jpeg">
+  
+  
+  
+  <title>LeetCode-376 - ykexc</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ykexc</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://image.itbaima.cn/images/76/image-20240103114932957.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="LeetCode-376"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-01-03 11:09" pubdate>
+          2024年1月3日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          41 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">LeetCode-376</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>本场两道题都与中位数有关，个人感觉第三题会比第四题难想一点，本场整体难度中等</p>
+<p><strong>Q1</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-missing-and-repeated-values/">找出缺失和重复的数字</a></p>
+<ul>
+<li>
+<p>给你一个下标从 <strong>0</strong> 开始的二维整数矩阵 <code>grid</code>，大小为 <code>n * n</code> ，其中的值在 <code>[1, n2]</code> 范围内。除了 <code>a</code> 出现 <strong>两次</strong>，<code>b</code> <strong>缺失</strong> 之外，每个整数都 <strong>恰好出现一次</strong> 。</p>
+<p>任务是找出重复的数字<code>a</code> 和缺失的数字 <code>b</code> 。</p>
+<p>返回一个下标从 0 开始、长度为 <code>2</code> 的整数数组 <code>ans</code> ，其中 <code>ans[0]</code> 等于 <code>a</code> ，<code>ans[1]</code> 等于 <code>b</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：grid = <span class="hljs-comment">[<span class="hljs-comment">[1,3]</span>,<span class="hljs-comment">[2,2]</span>]</span><br>输出：<span class="hljs-comment">[2,4]</span><br>解释：数字 2 重复，数字 4 缺失，所以答案是 <span class="hljs-comment">[2,4]</span> 。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：grid = <span class="hljs-comment">[<span class="hljs-comment">[9,1,7]</span>,<span class="hljs-comment">[8,9,2]</span>,<span class="hljs-comment">[3,4,6]</span>]</span><br>输出：<span class="hljs-comment">[9,5]</span><br>解释：数字 9 重复，数字 5 缺失，所以答案是 <span class="hljs-comment">[9,5]</span> 。<br></code></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>2 &lt;= n == grid.length == grid[i].length &lt;= 50</code></li>
+<li><code>1 &lt;= grid[i][j] &lt;= n * n</code></li>
+<li>对于所有满足<code>1 &lt;= x &lt;= n * n</code> 的 <code>x</code> ，恰好存在一个 <code>x</code> 与矩阵中的任何成员都不相等。</li>
+<li>对于所有满足<code>1 &lt;= x &lt;= n * n</code> 的 <code>x</code> ，恰好存在一个 <code>x</code> 与矩阵中的两个成员相等。</li>
+<li>除上述的两个之外，对于所有满足<code>1 &lt;= x &lt;= n * n</code> 的 <code>x</code> ，都恰好存在一对 <code>i, j</code> 满足 <code>0 &lt;= i, j &lt;= n - 1</code> 且 <code>grid[i][j] == x</code> 。</li>
+</ul>
+</li>
+</ul>
+<p>使用<code>Set</code>加枚举模拟本题即可解决。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">findMissingAndRepeatedValues</span><span class="hljs-params">(grid: <span class="hljs-type">Array</span>&lt;<span class="hljs-type">IntArray</span>&gt;)</span></span>: IntArray &#123;<br>        <span class="hljs-keyword">val</span> n = grid.size<br>        <span class="hljs-keyword">val</span> s2 = hashSetOf&lt;<span class="hljs-built_in">Int</span>&gt;()<br>        <span class="hljs-keyword">var</span> a = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">var</span> b = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> (g <span class="hljs-keyword">in</span> grid) &#123;<br>            <span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> <span class="hljs-number">0.</span>.&lt;n) &#123;<br>                <span class="hljs-keyword">if</span> (s2.contains(g[i]))<br>                    a = g[i]<br>                s2.add(g[i])<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (x <span class="hljs-keyword">in</span> <span class="hljs-number">1.</span>.n * n) &#123;<br>            <span class="hljs-keyword">if</span> (!s2.contains(x)) &#123;<br>                b = x<br>                <span class="hljs-keyword">break</span><br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> intArrayOf(a, b)<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>Q2</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/divide-array-into-arrays-with-max-difference/">划分数组并满足最大差限制</a></p>
+<ul>
+<li>
+<p>给你一个长度为 <code>n</code> 的整数数组 <code>nums</code>，以及一个正整数 <code>k</code> 。</p>
+<p>将这个数组划分为一个或多个长度为 <code>3</code> 的子数组，并满足以下条件：</p>
+<ul>
+<li><code>nums</code> 中的 <strong>每个</strong> 元素都必须 <strong>恰好</strong> 存在于某个子数组中。</li>
+<li>子数组中 <strong>任意</strong> 两个元素的差必须小于或等于 <code>k</code> 。</li>
+</ul>
+<p>返回一个 <strong>二维数组</strong> ，包含所有的子数组。如果不可能满足条件，就返回一个空数组。如果有多个答案，返回 <strong>任意一个</strong> 即可。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：nums = <span class="hljs-comment">[1,3,4,8,7,9,3,5,1]</span>, k = 2<br>输出：<span class="hljs-comment">[<span class="hljs-comment">[1,1,3]</span>,<span class="hljs-comment">[3,4,5]</span>,<span class="hljs-comment">[7,8,9]</span>]</span><br>解释：可以将数组划分为以下子数组：<span class="hljs-comment">[1,1,3]</span>，<span class="hljs-comment">[3,4,5]</span> 和 <span class="hljs-comment">[7,8,9]</span> 。<br>每个子数组中任意两个元素的差都小于或等于 2 。<br>注意，元素的顺序并不重要。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：nums = <span class="hljs-comment">[1,3,3,2,7,3]</span>, k = 3<br>输出：<span class="hljs-comment">[]</span><br>解释：无法划分数组满足所有条件。<br></code></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>n == nums.length</code></li>
+<li><code>1 &lt;= n &lt;= 105</code></li>
+<li><code>n</code> 是 <code>3</code> 的倍数</li>
+<li><code>1 &lt;= nums[i] &lt;= 105</code></li>
+<li><code>1 &lt;= k &lt;= 105</code></li>
+</ul>
+</li>
+</ul>
+<p>很容易看出想让相邻的数的差值最小的办法就是排序，排序后模拟一遍过程，即可得到答案。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">divideArray</span><span class="hljs-params">(nums: <span class="hljs-type">IntArray</span>, k: <span class="hljs-type">Int</span>)</span></span>: Array&lt;IntArray&gt; &#123;<br>        nums.sort()<br>        <span class="hljs-keyword">val</span> n = nums.size<br>        <span class="hljs-keyword">val</span> ret = mutableListOf&lt;IntArray&gt;()<br>        <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">while</span> (i &lt; n) &#123;<br>            <span class="hljs-keyword">if</span> (i + <span class="hljs-number">2</span> &lt; n &amp;&amp; nums[i + <span class="hljs-number">2</span>] - nums[i] &lt;= k) &#123;<br>                ret.add(intArrayOf(nums[i], nums[i + <span class="hljs-number">1</span>], nums[i + <span class="hljs-number">2</span>]))<br>                i += <span class="hljs-number">3</span><br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">return</span> emptyArray()<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ret.toTypedArray()<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>Q3</strong>  <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-cost-to-make-array-equalindromic/">使数组成为等数数组的最小代价</a></p>
+<p>给你一个长度为 <code>n</code> 下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 。</p>
+<p>你可以对 <code>nums</code> 执行特殊操作 <strong>任意次</strong> （也可以 <strong>0</strong> 次）。每一次特殊操作中，你需要 <strong>按顺序</strong> 执行以下步骤：</p>
+<ul>
+<li>从范围 <code>[0, n - 1]</code> 里选择一个下标 <code>i</code> 和一个 <strong>正</strong> 整数 <code>x</code> 。</li>
+<li>将 <code>|nums[i] - x|</code> 添加到总代价里。</li>
+<li>将 <code>nums[i]</code> 变为 <code>x</code> 。</li>
+</ul>
+<p>如果一个正整数正着读和反着读都相同，那么我们称这个数是 <strong>回文数</strong> 。比方说，<code>121</code> ，<code>2552</code> 和 <code>65756</code> 都是回文数，但是 <code>24</code> ，<code>46</code> ，<code>235</code> 都不是回文数。</p>
+<p>如果一个数组中的所有元素都等于一个整数 <code>y</code> ，且 <code>y</code> 是一个小于 <code>109</code> 的 <strong>回文数</strong> ，那么我们称这个数组是一个 <strong>等数数组</strong> 。</p>
+<p>请你返回一个整数，表示执行任意次特殊操作后使 <code>nums</code> 成为 <strong>等数数组</strong> 的 <strong>最小</strong> 总代价。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">输入：nums = [1,2,3,4,5]<br>输出：6<br>解释：我们可以将数组中所有元素变为回文数 3 得到等数数组，数组变成 [3,3,3,3,3] 需要执行 4 次特殊操作，代价为 |<span class="hljs-string">1 - 3</span>|<span class="hljs-string"> + </span>|<span class="hljs-string">2 - 3</span>|<span class="hljs-string"> + </span>|<span class="hljs-string">4 - 3</span>|<span class="hljs-string"> + </span>|<span class="hljs-string">5 - 3</span>|<span class="hljs-string"> = 6 。</span><br><span class="hljs-string">将所有元素变为其他回文数的总代价都大于 6 。</span><br></code></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">输入：nums = [10,12,13,14,15]<br>输出：11<br>解释：我们可以将数组中所有元素变为回文数 11 得到等数数组，数组变成 [11,11,11,11,11] 需要执行 5 次特殊操作，代价为 |<span class="hljs-string">10 - 11</span>|<span class="hljs-string"> + </span>|<span class="hljs-string">12 - 11</span>|<span class="hljs-string"> + </span>|<span class="hljs-string">13 - 11</span>|<span class="hljs-string"> + </span>|<span class="hljs-string">14 - 11</span>|<span class="hljs-string"> + </span>|<span class="hljs-string">15 - 11</span>|<span class="hljs-string"> = 11 。</span><br><span class="hljs-string">将所有元素变为其他回文数的总代价都大于 11 。</span><br></code></pre></td></tr></table></figure>
+<p><strong>示例 3 ：</strong></p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">输入：nums = [22,33,22,33,22]<br>输出：22<br>解释：我们可以将数组中所有元素变为回文数 22 得到等数数组，数组变为 [22,22,22,22,22] 需要执行 2 次特殊操作，代价为 |<span class="hljs-string">33 - 22</span>|<span class="hljs-string"> + </span>|<span class="hljs-string">33 - 22</span>|<span class="hljs-string"> = 22 。</span><br><span class="hljs-string">将所有元素变为其他回文数的总代价都大于 22 。</span><br></code></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= n &lt;= 105</code></li>
+<li><code>1 &lt;= nums[i] &lt;= 109</code></li>
+</ul>
+<p>本题很容易想到要最终变成的那个数，不能太大，也不能太小，那就先预处理数据范围内的中位数，(起初我并未想到中位数，先无脑写了个三分，然后就错了)，由于是绝对值的差，那么大概率就可以通过排序+前缀和+二分来解决，枚举要变成哪个数就行。如何处理<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">1-10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>内的回文数呢?由于太菜，只能想到字符串处理，枚举前半部分，拼接后半部分，由于可能是奇数长度或偶数长度，所以枚举的一个数都会变成两个数，这个数据范围试错了好多，后来学习到效率更高的处理方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 预处理</span><br>arr = []<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">60001</span>):<br>    s = <span class="hljs-built_in">str</span>(i)<br>    arr.append(<span class="hljs-built_in">int</span>(s + s[::-<span class="hljs-number">1</span>]))<br>    arr.append(<span class="hljs-built_in">int</span>(s + s[:<span class="hljs-built_in">len</span>(s) - <span class="hljs-number">1</span>][::-<span class="hljs-number">1</span>]))<br><br>arr.sort()<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">minimumCost</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        n = <span class="hljs-built_in">len</span>(nums)<br>        l, r = <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(arr) - <span class="hljs-number">1</span><br>        nums.sort()<br>        s = [<span class="hljs-number">0</span>] * (n + <span class="hljs-number">1</span>)<br>        ans = <span class="hljs-number">10</span> ** <span class="hljs-number">15</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>            s[i + <span class="hljs-number">1</span>] = s[i] + nums[i]<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">get</span>(<span class="hljs-params">k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>            l, r = <span class="hljs-number">0</span>, n - <span class="hljs-number">1</span><br>            <span class="hljs-keyword">while</span> l &lt; r:<br>                mid = (l + r + <span class="hljs-number">1</span>) // <span class="hljs-number">2</span><br>                <span class="hljs-keyword">if</span> nums[mid] &lt;= k:<br>                    l = mid<br>                <span class="hljs-keyword">else</span>:<br>                    r = mid - <span class="hljs-number">1</span><br>            <span class="hljs-keyword">if</span> nums[l] &gt; k:<br>                <span class="hljs-keyword">return</span> s[n] - k * n<br>            <span class="hljs-keyword">return</span> (l + <span class="hljs-number">1</span>) * k - s[l + <span class="hljs-number">1</span>] + s[n] - s[l + <span class="hljs-number">1</span>] - (n - l - <span class="hljs-number">1</span>) * k<br><br>        <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> arr:<br>            v = get(x)<br>            <span class="hljs-keyword">if</span> v &gt; ans:<br>                <span class="hljs-keyword">return</span> ans <span class="hljs-comment">#大于之后直接返回即可</span><br>            ans = v<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#更高效率的处理方法，而且不需要排序</span><br>arr = []<br>base = <span class="hljs-number">1</span><br><span class="hljs-keyword">while</span> base &lt;= <span class="hljs-number">10000</span>:<br>    <span class="hljs-comment"># 计算奇数长度</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(base, base * <span class="hljs-number">10</span>):<br>        x = i<br>        t = i // <span class="hljs-number">10</span><br>        <span class="hljs-keyword">while</span> t:<br>            x = x * <span class="hljs-number">10</span> + t % <span class="hljs-number">10</span><br>            t //= <span class="hljs-number">10</span><br>        arr.append(x)<br>    <span class="hljs-comment"># 计算偶数长度</span><br>    <span class="hljs-keyword">if</span> base &lt;= <span class="hljs-number">1000</span>:<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(base, base * <span class="hljs-number">10</span>):<br>            x = t = i<br>            <span class="hljs-keyword">while</span> t:<br>                x = x * <span class="hljs-number">10</span> + t % <span class="hljs-number">10</span><br>                t //= <span class="hljs-number">10</span><br>            arr.append(x)<br>    base *= <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+<p><strong>Q4</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/apply-operations-to-maximize-frequency-score/">执行操作使频率分数最大</a></p>
+<p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 和一个整数 <code>k</code> 。</p>
+<p>你可以对数组执行 <strong>至多</strong> <code>k</code> 次操作：</p>
+<ul>
+<li>从数组中选择一个下标 <code>i</code> ，将 <code>nums[i]</code> <strong>增加</strong> 或者 <strong>减少</strong> <code>1</code> 。</li>
+</ul>
+<p>最终数组的频率分数定义为数组中众数的 <strong>频率</strong> 。</p>
+<p>请你返回你可以得到的 <strong>最大</strong> 频率分数。</p>
+<p>众数指的是数组中出现次数最多的数。一个元素的频率指的是数组中这个元素的出现次数。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs stylus">输入：nums = <span class="hljs-selector-attr">[1,2,6,4]</span>, k = <span class="hljs-number">3</span><br>输出：<span class="hljs-number">3</span><br>解释：我们可以对数组执行以下操作：<br>- 选择 <span class="hljs-selector-tag">i</span> = <span class="hljs-number">0</span> ，将 nums<span class="hljs-selector-attr">[0]</span> 增加 <span class="hljs-number">1</span> 。得到数组 <span class="hljs-selector-attr">[2,2,6,4]</span> 。<br>- 选择 <span class="hljs-selector-tag">i</span> = <span class="hljs-number">3</span> ，将 nums<span class="hljs-selector-attr">[3]</span> 减少 <span class="hljs-number">1</span> ，得到数组 <span class="hljs-selector-attr">[2,2,6,3]</span> 。<br>- 选择 <span class="hljs-selector-tag">i</span> = <span class="hljs-number">3</span> ，将 nums<span class="hljs-selector-attr">[3]</span> 减少 <span class="hljs-number">1</span> ，得到数组 <span class="hljs-selector-attr">[2,2,6,2]</span> 。<br>元素 <span class="hljs-number">2</span> 是最终数组中的众数，出现了 <span class="hljs-number">3</span> 次，所以频率分数为 <span class="hljs-number">3</span> 。<br><span class="hljs-number">3</span> 是所有可行方案里的最大频率分数。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs accesslog">输入：nums = <span class="hljs-string">[1,4,4,2,4]</span>, k = <span class="hljs-number">0</span><br>输出：<span class="hljs-number">3</span><br>解释：我们无法执行任何操作，所以得到的频率分数是原数组中众数的频率 <span class="hljs-number">3</span> 。<br></code></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 105</code></li>
+<li><code>1 &lt;= nums[i] &lt;= 109</code></li>
+<li><code>0 &lt;= k &lt;= 1014</code></li>
+</ul>
+<p>使用二分+滑窗+前缀和处理。本题不能向上个题一样枚举变成哪个数，而是要枚举答案，其他的就很好想了，一段已经排好序的数中变成中位数的绝对值差肯定最小，然后前缀和思想和之前的题是一样的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maxFrequencyScore</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        nums.sort()<br>        n = <span class="hljs-built_in">len</span>(nums)<br>        s = [<span class="hljs-number">0</span>] * (n + <span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>            s[i + <span class="hljs-number">1</span>] = s[i] + nums[i]<br>        <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">        贪心的将所有数变为中位数</span><br><span class="hljs-string">        固定窗口的滑窗</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">check</span>(<span class="hljs-params">v: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>            le, ri = <span class="hljs-number">0</span>, v - <span class="hljs-number">1</span><br>            mid = (le + ri) // <span class="hljs-number">2</span><br>            <span class="hljs-keyword">if</span> nums[mid] * (mid - le + <span class="hljs-number">1</span>) - (s[mid + <span class="hljs-number">1</span>] - s[le]) + (<br>                    s[ri + <span class="hljs-number">1</span>] - s[mid + <span class="hljs-number">1</span>] - nums[mid] * (ri - mid)) &lt;= k:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(ri + <span class="hljs-number">1</span>, n):<br>                ll, rr = i - v + <span class="hljs-number">1</span>, i<br>                mm = (ll + rr) // <span class="hljs-number">2</span><br>                <span class="hljs-keyword">if</span> nums[mm] * (mm - ll + <span class="hljs-number">1</span>) - (s[mm + <span class="hljs-number">1</span>] - s[ll]) + (s[rr + <span class="hljs-number">1</span>] - s[mm + <span class="hljs-number">1</span>] - nums[mm] * (rr - mm)) &lt;= k:<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>        l, r = <span class="hljs-number">0</span>, n<br>        <span class="hljs-keyword">while</span> l &lt; r:<br>            mid = (l + r + <span class="hljs-number">1</span>) // <span class="hljs-number">2</span><br>            <span class="hljs-keyword">if</span> check(mid):<br>                l = mid<br>            <span class="hljs-keyword">else</span>:<br>                r = mid - <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> l<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/leetcode/">#leetcode</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>LeetCode-376</div>
+      <div>http://example.com/2024/01/03/LeetCode-376/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ykexc</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年1月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/12/31/LeetCode-375/" title="LeetCode-375">
+                        <span class="hidden-mobile">LeetCode-375</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
