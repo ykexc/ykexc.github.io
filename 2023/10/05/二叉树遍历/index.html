@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://image.itbaima.cn/images/76/image-20231005188435484.jpeg">
 <meta property="article:published_time" content="2023-10-05T10:18:53.000Z">
-<meta property="article:modified_time" content="2024-02-12T23:25:40.836Z">
+<meta property="article:modified_time" content="2024-02-14T00:04:06.922Z">
 <meta property="article:author" content="ykexc">
 <meta property="article:tag" content="杂项">
 <meta name="twitter:card" content="summary_large_image">
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          2.4k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          18 分钟
+          20 分钟
         
       </span>
     
@@ -316,6 +316,8 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">verticalTraversal</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:<br>        g = [[] <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">30</span>)]<br>        q = deque([(root, <span class="hljs-number">15</span>)])<br>        <span class="hljs-keyword">while</span> q:<br>            sz = <span class="hljs-built_in">len</span>(q)<br>            temp = []<br>            <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(sz):<br>                poll = q.popleft()<br>                temp.append((poll[<span class="hljs-number">1</span>], poll[<span class="hljs-number">0</span>].val))<br>                <span class="hljs-keyword">if</span> poll[<span class="hljs-number">0</span>].left: q.append((poll[<span class="hljs-number">0</span>].left, poll[<span class="hljs-number">1</span>] - <span class="hljs-number">1</span>))<br>                <span class="hljs-keyword">if</span> poll[<span class="hljs-number">0</span>].right: q.append((poll[<span class="hljs-number">0</span>].right, poll[<span class="hljs-number">1</span>] + <span class="hljs-number">1</span>))<br>            temp.sort()<br>            <span class="hljs-keyword">for</span> e <span class="hljs-keyword">in</span> temp: g[e[<span class="hljs-number">0</span>]].append(e[<span class="hljs-number">1</span>])<br>                <br>        ret = []<br>        <span class="hljs-keyword">for</span> e <span class="hljs-keyword">in</span> g:<br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(e) != <span class="hljs-number">0</span>:<br>                ret.append(e)<br>        <span class="hljs-keyword">return</span> ret<br></code></pre></td></tr></table></figure>
 <p><img src="https://assets.leetcode.com/uploads/2021/01/29/vtree1.jpg" srcset="/img/loading.gif" lazyload style="zoom:80%;" ></img></p>
 <p>输出[9, 3, 15, 20, 7]</p>
+<h3 id="层序遍历-递归">层序遍历(递归)</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">levelOrder</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root: <span class="hljs-keyword">return</span> []<br>        g = [[] <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2000</span>)]<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">r: <span class="hljs-string">&#x27;TreeNode&#x27;</span>, t: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-literal">None</span>:<br>            g[t].append(r.val)<br>            <span class="hljs-keyword">if</span> r.left:<br>                dfs(r.left, t + <span class="hljs-number">1</span>)  <span class="hljs-comment"># 根据递归的思路，这样写也是符合顺序的</span><br>            <span class="hljs-keyword">if</span> r.right:<br>                dfs(r.right, t + <span class="hljs-number">1</span>)<br><br>        dfs(root, <span class="hljs-number">0</span>)<br>        ret = []<br>        <span class="hljs-keyword">for</span> e <span class="hljs-keyword">in</span> g:<br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(e): ret.append(e)<br>        <span class="hljs-keyword">return</span> ret<br></code></pre></td></tr></table></figure>
 
                 
               </div>
