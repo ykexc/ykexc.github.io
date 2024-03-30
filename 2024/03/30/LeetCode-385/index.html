@@ -1,0 +1,737 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.acwing.com/media/user/profile/photo/196275_lg_23593e701b.jpeg">
+  <link rel="icon" href="https://cdn.acwing.com/media/user/profile/photo/196275_lg_23593e701b.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ykexc">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本篇核心词: Z函数  Q2 最长公共前缀的长度 给你两个 正整数 数组 arr1 和 arr2 。 正整数的 前缀 是其 最左边 的一位或多位数字组成的整数。例如，123 是整数 12345 的前缀，而 234 不是 。 设若整数 c 是整数 a 和 b 的 公共前缀 ，那么 c 需要同时是 a 和 b 的前缀。例如，5655359 和 56554 有公共前缀 565 ，而 1223 和 43">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode-385">
+<meta property="og:url" content="http://example.com/2024/03/30/LeetCode-385/index.html">
+<meta property="og:site_name" content="ykexc">
+<meta property="og:description" content="本篇核心词: Z函数  Q2 最长公共前缀的长度 给你两个 正整数 数组 arr1 和 arr2 。 正整数的 前缀 是其 最左边 的一位或多位数字组成的整数。例如，123 是整数 12345 的前缀，而 234 不是 。 设若整数 c 是整数 a 和 b 的 公共前缀 ，那么 c 需要同时是 a 和 b 的前缀。例如，5655359 和 56554 有公共前缀 565 ，而 1223 和 43">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.itbaima.cn/images/76/image-20240330157391035.jpeg">
+<meta property="article:published_time" content="2024-03-30T07:05:07.000Z">
+<meta property="article:modified_time" content="2024-03-30T07:32:33.123Z">
+<meta property="article:author" content="ykexc">
+<meta property="article:tag" content="leetcode">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://image.itbaima.cn/images/76/image-20240330157391035.jpeg">
+  
+  
+  
+  <title>LeetCode-385 - ykexc</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ykexc</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://image.itbaima.cn/images/76/image-20240330157391035.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="LeetCode-385"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-30 15:05" pubdate>
+          2024年3月30日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          54 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">LeetCode-385</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>本篇核心词: Z函数</p>
+</blockquote>
+<h3 id="Q2">Q2</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-length-of-the-longest-common-prefix/">最长公共前缀的长度</a></p>
+<p>给你两个 <strong>正整数</strong> 数组 <code>arr1</code> 和 <code>arr2</code> 。</p>
+<p>正整数的 <strong>前缀</strong> 是其 <strong>最左边</strong> 的一位或多位数字组成的整数。例如，<code>123</code> 是整数 <code>12345</code> 的前缀，而 <code>234</code> <strong>不是</strong> 。</p>
+<p>设若整数 <code>c</code> 是整数 <code>a</code> 和 <code>b</code> 的 <strong>公共前缀</strong> ，那么 <code>c</code> 需要同时是 <code>a</code> 和 <code>b</code> 的前缀。例如，<code>5655359</code> 和 <code>56554</code> 有公共前缀 <code>565</code> ，而 <code>1223</code> 和 <code>43456</code> <strong>没有</strong> 公共前缀。</p>
+<p>你需要找出属于 <code>arr1</code> 的整数 <code>x</code> 和属于 <code>arr2</code> 的整数 <code>y</code> 组成的所有数对 <code>(x, y)</code> 之中最长的公共前缀的长度。</p>
+<p>返回所有数对之中最长公共前缀的长度。如果它们之间不存在公共前缀，则返回 <code>0</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：arr1 = [1,10,100], arr2 = [1000]<br>输出：3<br>解释：存在<span class="hljs-number"> 3 </span>个数对 (arr1[i], arr2[j]) ：<br>- (1, 1000) 的最长公共前缀是<span class="hljs-number"> 1 </span>。<br>- (10, 1000) 的最长公共前缀是<span class="hljs-number"> 10 </span>。<br>- (100, 1000) 的最长公共前缀是<span class="hljs-number"> 100 </span>。<br>最长的公共前缀是<span class="hljs-number"> 100 </span>，长度为<span class="hljs-number"> 3 </span>。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：arr1 = <span class="hljs-comment">[1,2,3]</span>, arr2 = <span class="hljs-comment">[4,4,4]</span><br>输出：0<br>解释：任何数对 (arr1<span class="hljs-comment">[i]</span>, arr2<span class="hljs-comment">[j]</span>) 之中都不存在公共前缀，因此返回 0 。<br>请注意，同一个数组内元素之间的公共前缀不在考虑范围内。<br></code></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= arr1.length, arr2.length &lt;= 5 * 104</code></li>
+<li><code>1 &lt;= arr1[i], arr2[i] &lt;= 108</code></li>
+</ul>
+<p>保存<code>arr1</code>的所有前缀，在<code>arr2</code>中判断是否存在，存在更新最大值即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">longestCommonPrefix</span>(<span class="hljs-params">self, arr1: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], arr2: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        s = <span class="hljs-built_in">set</span>()<br>        <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> arr1:<br>            c = <span class="hljs-built_in">str</span>(x)<br>            n = <span class="hljs-built_in">len</span>(c)<br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n + <span class="hljs-number">1</span>):<br>                s.add(c[:i])<br>        ans = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> arr2:<br>            c = <span class="hljs-built_in">str</span>(x)<br>            n = <span class="hljs-built_in">len</span>(c)<br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n + <span class="hljs-number">1</span>):<br>                <span class="hljs-keyword">if</span> c[:i] <span class="hljs-keyword">in</span> s:<br>                    ans = <span class="hljs-built_in">max</span>(ans, i)<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+<h3 id="Q3">Q3</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/most-frequent-prime/">出现频率最高的质数</a></p>
+<p>给你一个大小为 <code>m x n</code> 、下标从 <strong>0</strong> 开始的二维矩阵 <code>mat</code> 。在每个单元格，你可以按以下方式生成数字：</p>
+<ul>
+<li>最多有 <code>8</code> 条路径可以选择：东，东南，南，西南，西，西北，北，东北。</li>
+<li>选择其中一条路径，沿着这个方向移动，并且将路径上的数字添加到正在形成的数字后面。</li>
+<li>注意，每一步都会生成数字，例如，如果路径上的数字是 <code>1, 9, 1</code>，那么在这个方向上会生成三个数字：<code>1, 19, 191</code> 。</li>
+</ul>
+<p>返回在遍历矩阵所创建的所有数字中，出现频率最高的、<strong>大于</strong> <code>10</code>的</p>
+<p>质数</p>
+<p>；如果不存在这样的质数，则返回 <code>-1</code> 。如果存在多个出现频率最高的质数，那么返回其中最大的那个。</p>
+<p>**注意：**移动过程中不允许改变方向。</p>
+<p><strong>示例 1：</strong></p>
+<p><strong><img src="https://assets.leetcode.com/uploads/2024/02/15/south" srcset="/img/loading.gif" lazyload alt="img"></strong></p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：mat = <span class="hljs-comment">[<span class="hljs-comment">[1,1]</span>,<span class="hljs-comment">[9,9]</span>,<span class="hljs-comment">[1,1]</span>]</span><br>输出：19<br>解释： <br>从单元格 (0,0) 出发，有 3 个可能的方向，这些方向上可以生成的大于 10 的数字有：<br>东方向: <span class="hljs-comment">[11]</span>, 东南方向: <span class="hljs-comment">[19]</span>, 南方向: <span class="hljs-comment">[19,191]</span> 。<br>从单元格 (0,1) 出发，所有可能方向上生成的大于 10 的数字有：<span class="hljs-comment">[19,191,19,11]</span> 。<br>从单元格 (1,0) 出发，所有可能方向上生成的大于 10 的数字有：<span class="hljs-comment">[99,91,91,91,91]</span> 。<br>从单元格 (1,1) 出发，所有可能方向上生成的大于 10 的数字有：<span class="hljs-comment">[91,91,99,91,91]</span> 。<br>从单元格 (2,0) 出发，所有可能方向上生成的大于 10 的数字有：<span class="hljs-comment">[11,19,191,19]</span> 。<br>从单元格 (2,1) 出发，所有可能方向上生成的大于 10 的数字有：<span class="hljs-comment">[11,19,19,191]</span> 。<br>在所有生成的数字中，出现频率最高的质数是 19 。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs lua">输入：mat = <span class="hljs-string">[[7]]</span><br>输出：<span class="hljs-number">-1</span><br>解释：唯一可以生成的数字是 <span class="hljs-number">7</span> 。它是一个质数，但不大于 <span class="hljs-number">10</span> ，所以返回 <span class="hljs-number">-1</span> 。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 3：</strong></p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：mat = <span class="hljs-comment">[<span class="hljs-comment">[9,7,8]</span>,<span class="hljs-comment">[4,6,5]</span>,<span class="hljs-comment">[2,8,6]</span>]</span><br>输出：97<br>解释： <br>从单元格 (0,0) 出发，所有可能方向上生成的大于 10 的数字有: <span class="hljs-comment">[97,978,96,966,94,942]</span> 。<br>从单元格 (0,1) 出发，所有可能方向上生成的大于 10 的数字有: <span class="hljs-comment">[78,75,76,768,74,79]</span> 。<br>从单元格 (0,2) 出发，所有可能方向上生成的大于 10 的数字有: <span class="hljs-comment">[85,856,86,862,87,879]</span> 。<br>从单元格 (1,0) 出发，所有可能方向上生成的大于 10 的数字有: <span class="hljs-comment">[46,465,48,42,49,47]</span> 。<br>从单元格 (1,1) 出发，所有可能方向上生成的大于 10 的数字有: <span class="hljs-comment">[65,66,68,62,64,69,67,68]</span> 。<br>从单元格 (1,2) 出发，所有可能方向上生成的大于 10 的数字有: <span class="hljs-comment">[56,58,56,564,57,58]</span> 。<br>从单元格 (2,0) 出发，所有可能方向上生成的大于 10 的数字有: <span class="hljs-comment">[28,286,24,249,26,268]</span> 。<br>从单元格 (2,1) 出发，所有可能方向上生成的大于 10 的数字有: <span class="hljs-comment">[86,82,84,86,867,85]</span> 。<br>从单元格 (2,2) 出发，所有可能方向上生成的大于 10 的数字有: <span class="hljs-comment">[68,682,66,669,65,658]</span> 。<br>在所有生成的数字中，出现频率最高的质数是 97 。<br></code></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>m == mat.length</code></li>
+<li><code>n == mat[i].length</code></li>
+<li><code>1 &lt;= m, n &lt;= 6</code></li>
+<li><code>1 &lt;= mat[i][j] &lt;= 9</code></li>
+</ul>
+<p>对于每个位置，8个方向都模拟一遍，求最大频率质数即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">mostFrequentPrime</span>(<span class="hljs-params">self, mat: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-built_in">int</span>:<br><br>        cnt = Counter()<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">is_prime</span>(<span class="hljs-params">x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>            <span class="hljs-keyword">if</span> x &lt; <span class="hljs-number">2</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            k = <span class="hljs-number">2</span><br>            <span class="hljs-keyword">while</span> k * k &lt;= x:<br>                <span class="hljs-keyword">if</span> x % k == <span class="hljs-number">0</span>: <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>                k += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br>        n, m = <span class="hljs-built_in">len</span>(mat), <span class="hljs-built_in">len</span>(mat[<span class="hljs-number">0</span>])<br>        d = [(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">0</span>), (<span class="hljs-number">0</span>, -<span class="hljs-number">1</span>), (-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), (<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>), (-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), (-<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>)]<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m):<br>                <span class="hljs-keyword">if</span> mat[i][j] &gt; <span class="hljs-number">10</span> <span class="hljs-keyword">and</span> is_prime(mat[i][j]): cnt[mat[i][j]] += <span class="hljs-number">1</span><br>                <span class="hljs-keyword">for</span> dx, dy <span class="hljs-keyword">in</span> d:<br>                    sx, sy, t = i, j, mat[i][j]<br>                    <span class="hljs-keyword">while</span> <span class="hljs-number">0</span> &lt;= sx + dx &lt; n <span class="hljs-keyword">and</span> <span class="hljs-number">0</span> &lt;= sy + dy &lt; m:<br>                        sx, sy = sx + dx, sy + dy<br>                        t = t * <span class="hljs-number">10</span> + mat[sx][sy]<br>                        <span class="hljs-keyword">if</span> t &gt; <span class="hljs-number">10</span> <span class="hljs-keyword">and</span> is_prime(t): cnt[t] += <span class="hljs-number">1</span><br>        ans, mxv = -<span class="hljs-number">1</span>, <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> cnt.items():<br>            <span class="hljs-keyword">if</span> v &gt; mxv <span class="hljs-keyword">or</span> v == mxv <span class="hljs-keyword">and</span> k &gt; ans:<br>                ans = k<br>                mxv = v<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+<h3 id="Q1-Q4">Q1&amp;Q4</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-prefix-and-suffix-pairs-ii/">统计前后缀下标对</a></p>
+<p>给你一个下标从 <strong>0</strong> 开始的字符串数组 <code>words</code> 。</p>
+<p>定义一个 <strong>布尔</strong> 函数 <code>isPrefixAndSuffix</code> ，它接受两个字符串参数 <code>str1</code> 和 <code>str2</code> ：</p>
+<ul>
+<li>当 str1同时是 str2 的前缀（prefix）和后缀（suffix）时，isPrefixAndSuffix(str1, str2) 返回 true，否则返回 false。</li>
+</ul>
+<p>例如，<code>isPrefixAndSuffix(&quot;aba&quot;, &quot;ababa&quot;)</code> 返回 <code>true</code>，因为 <code>&quot;aba&quot;</code> 既是 <code>&quot;ababa&quot;</code> 的前缀，也是 <code>&quot;ababa&quot;</code> 的后缀，但是 <code>isPrefixAndSuffix(&quot;abc&quot;, &quot;abcd&quot;)</code> 返回<code> false</code>。</p>
+<p>以整数形式，返回满足 <code>i &lt; j</code> 且 <code>isPrefixAndSuffix(words[i], words[j])</code> 为 <code>true</code> 的下标对 <code>(i, j)</code> 的 <strong>数量</strong> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs stylus">输入：words = <span class="hljs-selector-attr">[<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;aba&quot;</span>,<span class="hljs-string">&quot;ababa&quot;</span>,<span class="hljs-string">&quot;aa&quot;</span>]</span><br>输出：<span class="hljs-number">4</span><br>解释：在本示例中，计数的下标对包括：<br><span class="hljs-selector-tag">i</span> = <span class="hljs-number">0</span> 且 j = <span class="hljs-number">1</span> ，因为 <span class="hljs-built_in">isPrefixAndSuffix</span>(<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;aba&quot;</span>) 为 true 。<br><span class="hljs-selector-tag">i</span> = <span class="hljs-number">0</span> 且 j = <span class="hljs-number">2</span> ，因为 <span class="hljs-built_in">isPrefixAndSuffix</span>(<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;ababa&quot;</span>) 为 true 。<br><span class="hljs-selector-tag">i</span> = <span class="hljs-number">0</span> 且 j = <span class="hljs-number">3</span> ，因为 <span class="hljs-built_in">isPrefixAndSuffix</span>(<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;aa&quot;</span>) 为 true 。<br><span class="hljs-selector-tag">i</span> = <span class="hljs-number">1</span> 且 j = <span class="hljs-number">2</span> ，因为 <span class="hljs-built_in">isPrefixAndSuffix</span>(<span class="hljs-string">&quot;aba&quot;</span>, <span class="hljs-string">&quot;ababa&quot;</span>) 为 true 。<br>因此，答案是 <span class="hljs-number">4</span> 。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus">输入：words = <span class="hljs-selector-attr">[<span class="hljs-string">&quot;pa&quot;</span>,<span class="hljs-string">&quot;papa&quot;</span>,<span class="hljs-string">&quot;ma&quot;</span>,<span class="hljs-string">&quot;mama&quot;</span>]</span><br>输出：<span class="hljs-number">2</span><br>解释：在本示例中，计数的下标对包括：<br><span class="hljs-selector-tag">i</span> = <span class="hljs-number">0</span> 且 j = <span class="hljs-number">1</span> ，因为 <span class="hljs-built_in">isPrefixAndSuffix</span>(<span class="hljs-string">&quot;pa&quot;</span>, <span class="hljs-string">&quot;papa&quot;</span>) 为 true 。<br><span class="hljs-selector-tag">i</span> = <span class="hljs-number">2</span> 且 j = <span class="hljs-number">3</span> ，因为 <span class="hljs-built_in">isPrefixAndSuffix</span>(<span class="hljs-string">&quot;ma&quot;</span>, <span class="hljs-string">&quot;mama&quot;</span>) 为 true 。<br>因此，答案是 <span class="hljs-number">2</span> 。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 3：</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus">输入：words = <span class="hljs-selector-attr">[<span class="hljs-string">&quot;abab&quot;</span>,<span class="hljs-string">&quot;ab&quot;</span>]</span><br>输出：<span class="hljs-number">0</span><br>解释：在本示例中，唯一有效的下标对是 <span class="hljs-selector-tag">i</span> = <span class="hljs-number">0</span> 且 j = <span class="hljs-number">1</span> ，但是 <span class="hljs-built_in">isPrefixAndSuffix</span>(<span class="hljs-string">&quot;abab&quot;</span>, <span class="hljs-string">&quot;ab&quot;</span>) 为 false 。<br>因此，答案是 <span class="hljs-number">0</span> 。<br></code></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= words.length &lt;= 105</code></li>
+<li><code>1 &lt;= words[i].length &lt;= 105</code></li>
+<li><code>words[i]</code> 仅由小写英文字母组成。</li>
+<li>所有 <code>words[i]</code> 的长度之和不超过 <code>5 * 105</code> 。</li>
+</ul>
+<p>字典树+z函数。这也是我第一次学习z函数算法。</p>
+<blockquote>
+<p>对于一个长度为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>的字符串<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span>,定义函数z[i]表示s和s[i, n - 1]的lcp,z被成为z函数。特别的，z[0] = 0</p>
+</blockquote>
+<p>对于本题而言，可以使用字典树，一边存一边对于每个字符串的前缀进行查询有多少个字符串与其相同，需要保证的是，此字符串的前缀必须和后缀相同，如果能够处理每个字符串的每个位置的前缀是否与其后缀完全相同，就简单多了。对于处理方法可以使用z函数(完全符合z函数的定义)，使用字符串hash也是可以的。</p>
+<p>关于z函数的理解，若过端点位于<code>zbox</code>内的话，就可以使用之前的值来更新<code>zbox</code>,找到<code>i - l</code>的<code>z[i]</code>这个代表之前的可以最多匹配多少，还需判断这个值是否超过的<code>zbox</code>的长度<code>(r - i + 1)</code>，取两者最小值。之后就是暴力匹配了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><br><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span> &#123;<br>        Node[] nodes = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>[<span class="hljs-number">26</span>];<br><br>        <span class="hljs-type">long</span> cnt;<br>    &#125;<br><br><br>    <span class="hljs-type">Node</span> <span class="hljs-variable">root</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>();<br><br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">add</span><span class="hljs-params">(String s)</span> &#123;<br>        <span class="hljs-type">Node</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> root;<br>        <span class="hljs-type">char</span>[] chars = s.toCharArray();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> aChar : chars) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> aChar - <span class="hljs-string">&#x27;a&#x27;</span>;<br>            <span class="hljs-keyword">if</span> (temp.nodes[c] == <span class="hljs-literal">null</span>) temp.nodes[c] = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>();<br>            temp = temp.nodes[c];<br>        &#125;<br>        temp.cnt++;<br>    &#125;<br><br>    <span class="hljs-type">long</span> <span class="hljs-title function_">get</span><span class="hljs-params">(String s, <span class="hljs-type">int</span>[] z)</span> &#123;<br>        <span class="hljs-type">Node</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> root;<br>        <span class="hljs-type">long</span> <span class="hljs-variable">ret</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> s.length();<br>        <span class="hljs-type">char</span>[] chars = s.toCharArray();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> chars[i] - <span class="hljs-string">&#x27;a&#x27;</span>;<br>            <span class="hljs-keyword">if</span> (temp.nodes[c] == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> ret;<br>            <span class="hljs-keyword">if</span> (i == n - <span class="hljs-number">1</span> || z[n - i - <span class="hljs-number">1</span>] == i + <span class="hljs-number">1</span>) ret += temp.nodes[c].cnt;<br>            temp = temp.nodes[c];<br>        &#125;<br>        <span class="hljs-keyword">return</span> ret;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">long</span> <span class="hljs-title function_">countPrefixSuffixPairs</span><span class="hljs-params">(String[] words)</span> &#123;<br>        List&lt;<span class="hljs-type">int</span>[]&gt; list = sHash(words);<br><br>        <span class="hljs-type">long</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; words.length; i++) &#123;<br>            ans += get(words[i], list.get(i));<br>            add(words[i]);<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> List&lt;<span class="hljs-type">int</span>[]&gt; zFunc(String[] words) &#123;<br>        List&lt;<span class="hljs-type">int</span>[]&gt; zList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (String string : words) &#123;<br>            <span class="hljs-type">char</span>[] s = string.toCharArray();<br>            <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> s.length;<br>            <span class="hljs-type">int</span>[] z = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>, l = <span class="hljs-number">0</span>, r = <span class="hljs-number">0</span>; i &lt; n; ++i) &#123;<br>                <span class="hljs-keyword">if</span> (i &lt;= r &amp;&amp; z[i - l] &lt; r - i + <span class="hljs-number">1</span>) &#123;<br>                    z[i] = z[i - l];<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    z[i] = Math.max(<span class="hljs-number">0</span>, r - i + <span class="hljs-number">1</span>);<br>                    <span class="hljs-keyword">while</span> (i + z[i] &lt; n &amp;&amp; s[z[i]] == s[i + z[i]]) ++z[i];<br>                &#125;<br>                <span class="hljs-keyword">if</span> (i + z[i] - <span class="hljs-number">1</span> &gt; r) &#123;<br>                    l = i;<br>                    r = i + z[i] - <span class="hljs-number">1</span>;<br>                &#125;<br>            &#125;<br>            zList.add(z);<br>        &#125;<br>        <span class="hljs-keyword">return</span> zList;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> List&lt;<span class="hljs-type">int</span>[]&gt; sHash(String[] words) &#123;<br>        List&lt;<span class="hljs-type">int</span>[]&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>        <span class="hljs-type">int</span> <span class="hljs-variable">P</span> <span class="hljs-operator">=</span> <span class="hljs-number">233</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> word : words) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> word.length();<br>            <span class="hljs-type">int</span>[] p = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n + <span class="hljs-number">1</span>], h = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n + <span class="hljs-number">1</span>];<br>            p[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>               p[i] = p[i - <span class="hljs-number">1</span>] * P;<br>               h[i] = h[i - <span class="hljs-number">1</span>] * P + word.charAt(i - <span class="hljs-number">1</span>);<br>            &#125;<br>            <span class="hljs-type">int</span>[] k = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; n; i++) &#123;<br>                <span class="hljs-keyword">if</span> (h[n] - h[i] * p[n - i] == h[n - i] - h[<span class="hljs-number">0</span>] * p[n - i]) k[i] = n - i;  <span class="hljs-comment">//和z函数保持一致</span><br>            &#125;<br>            list.add(k);<br>        &#125;<br>        <span class="hljs-keyword">return</span> list;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/leetcode/">#leetcode</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>LeetCode-385</div>
+      <div>http://example.com/2024/03/30/LeetCode-385/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ykexc</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年3月30日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/03/28/%E5%8C%BA%E9%97%B4%E5%92%8CDP/" title="区间和DP、">
+                        <span class="hidden-mobile">区间和DP、</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
