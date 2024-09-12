@@ -16,24 +16,24 @@
   <meta name="author" content="ykexc">
   <meta name="keywords" content="">
   
-    <meta name="description" content="LC9-11 2555. 两个线段获得的最多奖品 在 X轴 上有一些奖品。给你一个整数数组 prizePositions ，它按照 非递减 顺序排列，其中 prizePositions[i] 是第 i 件奖品的位置。数轴上一个位置可能会有多件奖品。再给你一个整数 k 。 你可以同时选择两个端点为整数的线段。每个线段的长度都必须是 k 。你可以获得位置在任一线段上的所有奖品（包括线段的两个端点）。注">
+    <meta name="description" content="LC9-12 2576. 求出最多标记下标 给你一个下标从 0 开始的整数数组 nums 。 一开始，所有下标都没有被标记。你可以执行以下操作任意次：  选择两个 互不相同且未标记 的下标 i 和 j ，满足 2 * nums[i] &lt;&#x3D; nums[j] ，标记下标 i 和 j 。  请你执行上述操作任意次，返回 nums 中最多可以标记的下标数目。 示例 1： 1234输入：nums &#x3D;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC9.11">
-<meta property="og:url" content="http://example.com/2024/09/11/LC9-11/index.html">
+<meta property="og:title" content="LC9.12">
+<meta property="og:url" content="http://example.com/2024/09/12/LC9-12/index.html">
 <meta property="og:site_name" content="ykexc">
-<meta property="og:description" content="LC9-11 2555. 两个线段获得的最多奖品 在 X轴 上有一些奖品。给你一个整数数组 prizePositions ，它按照 非递减 顺序排列，其中 prizePositions[i] 是第 i 件奖品的位置。数轴上一个位置可能会有多件奖品。再给你一个整数 k 。 你可以同时选择两个端点为整数的线段。每个线段的长度都必须是 k 。你可以获得位置在任一线段上的所有奖品（包括线段的两个端点）。注">
+<meta property="og:description" content="LC9-12 2576. 求出最多标记下标 给你一个下标从 0 开始的整数数组 nums 。 一开始，所有下标都没有被标记。你可以执行以下操作任意次：  选择两个 互不相同且未标记 的下标 i 和 j ，满足 2 * nums[i] &lt;&#x3D; nums[j] ，标记下标 i 和 j 。  请你执行上述操作任意次，返回 nums 中最多可以标记的下标数目。 示例 1： 1234输入：nums &#x3D;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/yy44.jpg">
-<meta property="article:published_time" content="2024-09-11T10:11:56.000Z">
-<meta property="article:modified_time" content="2024-09-11T10:24:43.948Z">
+<meta property="og:image" content="http://example.com/images/yy77.jpg">
+<meta property="article:published_time" content="2024-09-12T09:13:45.000Z">
+<meta property="article:modified_time" content="2024-09-12T09:17:37.651Z">
 <meta property="article:author" content="ykexc">
 <meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/images/yy44.jpg">
+<meta name="twitter:image" content="http://example.com/images/yy77.jpg">
   
   
   
-  <title>LC9.11 - ykexc</title>
+  <title>LC9.12 - ykexc</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -195,13 +195,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/./images/yy44.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/./images/yy77.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="LC9.11"></span>
+            <span id="subtitle" data-typed-text="LC9.12"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-11 18:11" pubdate>
-          2024年9月11日 晚上
+        <time datetime="2024-09-12 17:13" pubdate>
+          2024年9月12日 下午
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          12 分钟
+          9 分钟
         
       </span>
     
@@ -294,37 +294,33 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">LC9.11</h1>
+            <h1 style="display: none">LC9.12</h1>
             
             
               <div class="markdown-body">
                 
-                <h1>LC9-11</h1>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximize-win-from-two-segments/">2555. 两个线段获得的最多奖品</a></p>
-<p>在 <strong>X轴</strong> 上有一些奖品。给你一个整数数组 <code>prizePositions</code> ，它按照 <strong>非递减</strong> 顺序排列，其中 <code>prizePositions[i]</code> 是第 <code>i</code> 件奖品的位置。数轴上一个位置可能会有多件奖品。再给你一个整数 <code>k</code> 。</p>
-<p>你可以同时选择两个端点为整数的线段。每个线段的长度都必须是 <code>k</code> 。你可以获得位置在任一线段上的所有奖品（包括线段的两个端点）。注意，两个线段可能会有相交。</p>
+                <h1>LC9-12</h1>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-maximum-number-of-marked-indices/">2576. 求出最多标记下标</a></p>
+<p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 。</p>
+<p>一开始，所有下标都没有被标记。你可以执行以下操作任意次：</p>
 <ul>
-<li>比方说 <code>k = 2</code> ，你可以选择线段 <code>[1, 3]</code> 和 <code>[2, 4]</code> ，你可以获得满足 <code>1 &lt;= prizePositions[i] &lt;= 3</code> 或者 <code>2 &lt;= prizePositions[i] &lt;= 4</code> 的所有奖品 i 。</li>
+<li>选择两个 <strong>互不相同且未标记</strong> 的下标 <code>i</code> 和 <code>j</code> ，满足 <code>2 * nums[i] &lt;= nums[j]</code> ，标记下标 <code>i</code> 和 <code>j</code> 。</li>
 </ul>
-<p>请你返回在选择两个最优线段的前提下，可以获得的 <strong>最多</strong> 奖品数目。</p>
+<p>请你执行上述操作任意次，返回 <code>nums</code> 中最多可以标记的下标数目。</p>
 <p><strong>示例 1：</strong></p>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：prizePositions = <span class="hljs-comment">[1,1,2,2,3,3,5]</span>, k = 2<br>输出：7<br>解释：这个例子中，你可以选择线段 <span class="hljs-comment">[1, 3]</span> 和 <span class="hljs-comment">[3, 5]</span> ，获得 7 个奖品。<br></code></pre></td></tr></table></figure>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：nums = [3,5,2,4]<br>输出：2<br>解释：第一次操作中，选择 i =<span class="hljs-number"> 2 </span>和 j =<span class="hljs-number"> 1 </span>，操作可以执行的原因是<span class="hljs-number"> 2 </span>* nums[2] &lt;= nums[1] ，标记下标<span class="hljs-number"> 2 </span>和<span class="hljs-number"> 1 </span>。<br>没有其他更多可执行的操作，所以答案为<span class="hljs-number"> 2 </span>。<br></code></pre></td></tr></table></figure>
 <p><strong>示例 2：</strong></p>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：prizePositions = <span class="hljs-comment">[1,2,3,4]</span>, k = 0<br>输出：2<br>解释：这个例子中，一个选择是选择线段 <span class="hljs-comment">[3, 3]</span> 和 <span class="hljs-comment">[4, 4]</span> ，获得 2 个奖品。<br></code></pre></td></tr></table></figure>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：nums = [9,2,5,4]<br>输出：4<br>解释：第一次操作中，选择 i =<span class="hljs-number"> 3 </span>和 j =<span class="hljs-number"> 0 </span>，操作可以执行的原因是<span class="hljs-number"> 2 </span>* nums[3] &lt;= nums[0] ，标记下标<span class="hljs-number"> 3 </span>和<span class="hljs-number"> 0 </span>。<br>第二次操作中，选择 i =<span class="hljs-number"> 1 </span>和 j =<span class="hljs-number"> 2 </span>，操作可以执行的原因是<span class="hljs-number"> 2 </span>* nums[1] &lt;= nums[2] ，标记下标<span class="hljs-number"> 1 </span>和<span class="hljs-number"> 2 </span>。<br>没有其他更多可执行的操作，所以答案为<span class="hljs-number"> 4 </span>。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 3：</strong></p>
+<figure class="highlight fix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs fix"><span class="hljs-attr">输入：nums </span>=<span class="hljs-string"> [7,6,8]</span><br><span class="hljs-string">输出：0</span><br><span class="hljs-string">解释：没有任何可以执行的操作，所以答案为 0 。</span><br></code></pre></td></tr></table></figure>
 <p><strong>提示：</strong></p>
 <ul>
-<li><code>1 &lt;= prizePositions.length &lt;= 105</code></li>
-<li><code>1 &lt;= prizePositions[i] &lt;= 109</code></li>
-<li><code>0 &lt;= k &lt;= 109 </code></li>
-<li><code>prizePositions</code> 有序非递减。</li>
+<li><code>1 &lt;= nums.length &lt;= 105</code></li>
+<li><code>1 &lt;= nums[i] &lt;= 109</code></li>
 </ul>
-<h3 id="滑动窗口-动态规划">滑动窗口+动态规划</h3>
-<p>假设要求一段线段的最大覆盖，很容易想到求出以每个下标f[i]为结尾的最大覆盖，使用的方法可以是二分或者滑动窗口。<br>
-如果考虑两端线段的最大覆盖的话，不妨设g[i]表示以0到i的下标结尾的最大覆盖的最大值。那么则有：<br>
-<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo>=</mo><mi>m</mi><mi>a</mi><mi>x</mi><mo stretchy="false">(</mo><mi>g</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo separator="true">,</mo><mi>f</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">g[i]=max(g[i−1],f[i])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">ma</span><span class="mord mathnormal">x</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">])</span></span></span></span><br>
-当遍历到一个下标的时候，可以得到以当前下标为末尾的最长覆盖和这个下标之前的所有下标的最长覆盖的最大值，可以贪心，最优解一定位于其中的某个值：<br>
-<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>n</mi><mi>s</mi><mo>=</mo><mi>m</mi><mi>a</mi><mi>x</mi><mo stretchy="false">(</mo><mi>a</mi><mi>n</mi><mi>s</mi><mo separator="true">,</mo><mi>f</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo>+</mo><mi>g</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mi>f</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">]</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">ans=max(ans,f[i]+g[i−f[i]])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">an</span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">ma</span><span class="mord mathnormal">x</span><span class="mopen">(</span><span class="mord mathnormal">an</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]])</span></span></span></span></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maximizeWin</span><span class="hljs-params">(<span class="hljs-type">int</span>[] prizePositions, <span class="hljs-type">int</span> k)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> prizePositions.length;<br>        <span class="hljs-type">int</span>[] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n], g = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br>        <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">l</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, r = <span class="hljs-number">0</span>; r &lt; n; r++) &#123;<br>            <span class="hljs-keyword">while</span> (prizePositions[r] - prizePositions[l] &gt; k) &#123;<br>                l++;<br>            &#125;<br>            f[r] = r - l + <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">if</span> (r == <span class="hljs-number">0</span>) &#123;<br>                g[r] = f[r];<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                g[r] = Math.max(g[r - <span class="hljs-number">1</span>], f[r]);<br>            &#125;<br>            <span class="hljs-keyword">if</span> (r - f[r] &gt;= <span class="hljs-number">0</span>) &#123;<br>                ans = Math.max(ans, f[r] + g[r - f[r]]);<br>            &#125;<br>        &#125;<br>        ans = Math.max(ans, g[n - <span class="hljs-number">1</span>]);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>题目要求任意i,j，说明排序不会影响结果。那么先排序。贪心考虑，要尽可能消除更多的数，设mx为较大数，mn为较小数，那么需要尽可能的保证mx−mn∗2的值小，且大于0。再考虑最优情况就是整个数组都被消除完了，那么与第一个按照贪心匹配的就是中间的那个，从l=0枚举小值，r=len(nums)/2开始枚举大值，同向双指针，如果满足条件ans就加2，不满足则r继续右移。</p>
+<p>时间复杂度O(n),空间复杂度O(1)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <br>    <br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxNumOfMarkedIndices</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>        Arrays.sort(nums);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> nums.length / <span class="hljs-number">2</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">l</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, r = k;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (l &lt; k &amp;&amp; r &lt; nums.length) &#123;<br>            <span class="hljs-keyword">if</span> (nums[l] * <span class="hljs-number">2</span> &lt;= nums[r]) &#123;<br>                ans += <span class="hljs-number">2</span>;<br>                l++;<br>                r++;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                r++;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -370,8 +366,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LC9.11</div>
-      <div>http://example.com/2024/09/11/LC9-11/</div>
+      <div>LC9.12</div>
+      <div>http://example.com/2024/09/12/LC9-12/</div>
     </div>
     <div class="license-meta">
       
@@ -383,7 +379,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年9月11日</div>
+          <div>2024年9月12日</div>
         </div>
       
       
@@ -415,18 +411,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/09/12/LC9-12/" title="LC9.12">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LC9.12</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/06/13/IPAM/" title="IPAM">
-                        <span class="hidden-mobile">IPAM</span>
+                      <a href="/2024/09/11/LC9-11/" title="LC9.11">
+                        <span class="hidden-mobile">LC9.11</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

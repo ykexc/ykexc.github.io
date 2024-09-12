@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>LC9.12</title>
+    <link href="/2024/09/12/LC9-12/"/>
+    <url>/2024/09/12/LC9-12/</url>
+    
+    <content type="html"><![CDATA[<h1>LC9-12</h1><p><a href="https://leetcode.cn/problems/find-the-maximum-number-of-marked-indices/">2576. 求出最多标记下标</a></p><p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 。</p><p>一开始，所有下标都没有被标记。你可以执行以下操作任意次：</p><ul><li>选择两个 <strong>互不相同且未标记</strong> 的下标 <code>i</code> 和 <code>j</code> ，满足 <code>2 * nums[i] &lt;= nums[j]</code> ，标记下标 <code>i</code> 和 <code>j</code> 。</li></ul><p>请你执行上述操作任意次，返回 <code>nums</code> 中最多可以标记的下标数目。</p><p><strong>示例 1：</strong></p><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：nums = [3,5,2,4]<br>输出：2<br>解释：第一次操作中，选择 i =<span class="hljs-number"> 2 </span>和 j =<span class="hljs-number"> 1 </span>，操作可以执行的原因是<span class="hljs-number"> 2 </span>* nums[2] &lt;= nums[1] ，标记下标<span class="hljs-number"> 2 </span>和<span class="hljs-number"> 1 </span>。<br>没有其他更多可执行的操作，所以答案为<span class="hljs-number"> 2 </span>。<br></code></pre></td></tr></table></figure><p><strong>示例 2：</strong></p><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：nums = [9,2,5,4]<br>输出：4<br>解释：第一次操作中，选择 i =<span class="hljs-number"> 3 </span>和 j =<span class="hljs-number"> 0 </span>，操作可以执行的原因是<span class="hljs-number"> 2 </span>* nums[3] &lt;= nums[0] ，标记下标<span class="hljs-number"> 3 </span>和<span class="hljs-number"> 0 </span>。<br>第二次操作中，选择 i =<span class="hljs-number"> 1 </span>和 j =<span class="hljs-number"> 2 </span>，操作可以执行的原因是<span class="hljs-number"> 2 </span>* nums[1] &lt;= nums[2] ，标记下标<span class="hljs-number"> 1 </span>和<span class="hljs-number"> 2 </span>。<br>没有其他更多可执行的操作，所以答案为<span class="hljs-number"> 4 </span>。<br></code></pre></td></tr></table></figure><p><strong>示例 3：</strong></p><figure class="highlight fix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs fix"><span class="hljs-attr">输入：nums </span>=<span class="hljs-string"> [7,6,8]</span><br><span class="hljs-string">输出：0</span><br><span class="hljs-string">解释：没有任何可以执行的操作，所以答案为 0 。</span><br></code></pre></td></tr></table></figure><p><strong>提示：</strong></p><ul><li><code>1 &lt;= nums.length &lt;= 105</code></li><li><code>1 &lt;= nums[i] &lt;= 109</code></li></ul><p>题目要求任意i,j，说明排序不会影响结果。那么先排序。贪心考虑，要尽可能消除更多的数，设mx为较大数，mn为较小数，那么需要尽可能的保证mx−mn∗2的值小，且大于0。再考虑最优情况就是整个数组都被消除完了，那么与第一个按照贪心匹配的就是中间的那个，从l=0枚举小值，r=len(nums)/2开始枚举大值，同向双指针，如果满足条件ans就加2，不满足则r继续右移。</p><p>时间复杂度O(n),空间复杂度O(1)。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <br>    <br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxNumOfMarkedIndices</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>        Arrays.sort(nums);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> nums.length / <span class="hljs-number">2</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">l</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, r = k;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (l &lt; k &amp;&amp; r &lt; nums.length) &#123;<br>            <span class="hljs-keyword">if</span> (nums[l] * <span class="hljs-number">2</span> &lt;= nums[r]) &#123;<br>                ans += <span class="hljs-number">2</span>;<br>                l++;<br>                r++;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                r++;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>leetcode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LC9.11</title>
     <link href="/2024/09/11/LC9-11/"/>
     <url>/2024/09/11/LC9-11/</url>
