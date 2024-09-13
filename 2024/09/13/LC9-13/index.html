@@ -16,16 +16,16 @@
   <meta name="author" content="ykexc">
   <meta name="keywords" content="">
   
-    <meta name="description" content="LC9-12 2576. 求出最多标记下标 给你一个下标从 0 开始的整数数组 nums 。 一开始，所有下标都没有被标记。你可以执行以下操作任意次：  选择两个 互不相同且未标记 的下标 i 和 j ，满足 2 * nums[i] &lt;&#x3D; nums[j] ，标记下标 i 和 j 。  请你执行上述操作任意次，返回 nums 中最多可以标记的下标数目。 示例 1： 1234输入：nums &#x3D;">
+    <meta name="description" content="LC9-13 2398. 预算内的最多机器人数目 你有 n 个机器人，给你两个下标从 0 开始的整数数组 chargeTimes 和 runningCosts ，两者长度都为 n 。第 i 个机器人充电时间为 chargeTimes[i] 单位时间，花费 runningCosts[i] 单位时间运行。再给你一个整数 budget 。 运行 k 个机器人 总开销 是 max(chargeTimes)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC9.12">
-<meta property="og:url" content="http://example.com/2024/09/12/LC9-12/index.html">
+<meta property="og:title" content="LC9.13">
+<meta property="og:url" content="http://example.com/2024/09/13/LC9-13/index.html">
 <meta property="og:site_name" content="ykexc">
-<meta property="og:description" content="LC9-12 2576. 求出最多标记下标 给你一个下标从 0 开始的整数数组 nums 。 一开始，所有下标都没有被标记。你可以执行以下操作任意次：  选择两个 互不相同且未标记 的下标 i 和 j ，满足 2 * nums[i] &lt;&#x3D; nums[j] ，标记下标 i 和 j 。  请你执行上述操作任意次，返回 nums 中最多可以标记的下标数目。 示例 1： 1234输入：nums &#x3D;">
+<meta property="og:description" content="LC9-13 2398. 预算内的最多机器人数目 你有 n 个机器人，给你两个下标从 0 开始的整数数组 chargeTimes 和 runningCosts ，两者长度都为 n 。第 i 个机器人充电时间为 chargeTimes[i] 单位时间，花费 runningCosts[i] 单位时间运行。再给你一个整数 budget 。 运行 k 个机器人 总开销 是 max(chargeTimes)">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/yy77.jpg">
-<meta property="article:published_time" content="2024-09-12T09:13:45.000Z">
-<meta property="article:modified_time" content="2024-09-12T09:17:37.651Z">
+<meta property="article:published_time" content="2024-09-13T14:09:52.342Z">
+<meta property="article:modified_time" content="2024-09-13T14:18:25.326Z">
 <meta property="article:author" content="ykexc">
 <meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary_large_image">
@@ -33,7 +33,7 @@
   
   
   
-  <title>LC9.12 - ykexc</title>
+  <title>LC9.13 - ykexc</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="LC9.12"></span>
+            <span id="subtitle" data-typed-text="LC9.13"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-12 17:13" pubdate>
-          2024年9月12日 下午
+        <time datetime="2024-09-13 22:09" pubdate>
+          2024年9月13日 晚上
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          2k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          9 分钟
+          17 分钟
         
       </span>
     
@@ -294,33 +294,30 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">LC9.12</h1>
+            <h1 style="display: none">LC9.13</h1>
             
             
               <div class="markdown-body">
                 
-                <h1>LC9-12</h1>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-maximum-number-of-marked-indices/">2576. 求出最多标记下标</a></p>
-<p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 。</p>
-<p>一开始，所有下标都没有被标记。你可以执行以下操作任意次：</p>
-<ul>
-<li>选择两个 <strong>互不相同且未标记</strong> 的下标 <code>i</code> 和 <code>j</code> ，满足 <code>2 * nums[i] &lt;= nums[j]</code> ，标记下标 <code>i</code> 和 <code>j</code> 。</li>
-</ul>
-<p>请你执行上述操作任意次，返回 <code>nums</code> 中最多可以标记的下标数目。</p>
+                <h1>LC9-13</h1>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-number-of-robots-within-budget/">2398. 预算内的最多机器人数目</a></p>
+<p>你有 <code>n</code> 个机器人，给你两个下标从 <strong>0</strong> 开始的整数数组 <code>chargeTimes</code> 和 <code>runningCosts</code> ，两者长度都为 <code>n</code> 。第 <code>i</code> 个机器人充电时间为 <code>chargeTimes[i]</code> 单位时间，花费 <code>runningCosts[i]</code> 单位时间运行。再给你一个整数 <code>budget</code> 。</p>
+<p>运行 <code>k</code> 个机器人 <strong>总开销</strong> 是 <code>max(chargeTimes) + k * sum(runningCosts)</code> ，其中 <code>max(chargeTimes)</code> 是这 <code>k</code> 个机器人中最大充电时间，<code>sum(runningCosts)</code> 是这 <code>k</code> 个机器人的运行时间之和。</p>
+<p>请你返回在 <strong>不超过</strong> <code>budget</code> 的前提下，你 <strong>最多</strong> 可以 <strong>连续</strong> 运行的机器人数目为多少。</p>
 <p><strong>示例 1：</strong></p>
-<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：nums = [3,5,2,4]<br>输出：2<br>解释：第一次操作中，选择 i =<span class="hljs-number"> 2 </span>和 j =<span class="hljs-number"> 1 </span>，操作可以执行的原因是<span class="hljs-number"> 2 </span>* nums[2] &lt;= nums[1] ，标记下标<span class="hljs-number"> 2 </span>和<span class="hljs-number"> 1 </span>。<br>没有其他更多可执行的操作，所以答案为<span class="hljs-number"> 2 </span>。<br></code></pre></td></tr></table></figure>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：chargeTimes = [3,6,1,3,4], runningCosts = [2,1,3,4,5], budget = 25<br>输出：3<br>解释：<br>可以在 budget 以内运行所有单个机器人或者连续运行<span class="hljs-number"> 2 </span>个机器人。<br>选择前<span class="hljs-number"> 3 </span>个机器人，可以得到答案最大值<span class="hljs-number"> 3 </span>。总开销是 max(3,6,1) +<span class="hljs-number"> 3 </span>* sum(2,1,3) =<span class="hljs-number"> 6 </span>+<span class="hljs-number"> 3 </span>*<span class="hljs-number"> 6 </span>=<span class="hljs-number"> 24 </span>，小于<span class="hljs-number"> 25 </span>。<br>可以看出无法在 budget 以内连续运行超过<span class="hljs-number"> 3 </span>个机器人，所以我们返回<span class="hljs-number"> 3 </span>。<br></code></pre></td></tr></table></figure>
 <p><strong>示例 2：</strong></p>
-<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：nums = [9,2,5,4]<br>输出：4<br>解释：第一次操作中，选择 i =<span class="hljs-number"> 3 </span>和 j =<span class="hljs-number"> 0 </span>，操作可以执行的原因是<span class="hljs-number"> 2 </span>* nums[3] &lt;= nums[0] ，标记下标<span class="hljs-number"> 3 </span>和<span class="hljs-number"> 0 </span>。<br>第二次操作中，选择 i =<span class="hljs-number"> 1 </span>和 j =<span class="hljs-number"> 2 </span>，操作可以执行的原因是<span class="hljs-number"> 2 </span>* nums[1] &lt;= nums[2] ，标记下标<span class="hljs-number"> 1 </span>和<span class="hljs-number"> 2 </span>。<br>没有其他更多可执行的操作，所以答案为<span class="hljs-number"> 4 </span>。<br></code></pre></td></tr></table></figure>
-<p><strong>示例 3：</strong></p>
-<figure class="highlight fix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs fix"><span class="hljs-attr">输入：nums </span>=<span class="hljs-string"> [7,6,8]</span><br><span class="hljs-string">输出：0</span><br><span class="hljs-string">解释：没有任何可以执行的操作，所以答案为 0 。</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：chargeTimes = <span class="hljs-comment">[11,12,19]</span>, runningCosts = <span class="hljs-comment">[10,8,7]</span>, budget = 19<br>输出：0<br>解释：即使运行任何一个单个机器人，还是会超出 budget，所以我们返回 0 。<br></code></pre></td></tr></table></figure>
 <p><strong>提示：</strong></p>
 <ul>
-<li><code>1 &lt;= nums.length &lt;= 105</code></li>
-<li><code>1 &lt;= nums[i] &lt;= 109</code></li>
+<li><code>chargeTimes.length == runningCosts.length == n</code></li>
+<li><code>1 &lt;= n &lt;= 5 * 104</code></li>
+<li><code>1 &lt;= chargeTimes[i], runningCosts[i] &lt;= 105</code></li>
+<li><code>1 &lt;= budget &lt;= 1015</code></li>
 </ul>
-<p>题目要求任意i,j，说明排序不会影响结果。那么先排序。贪心考虑，要尽可能消除更多的数，设mx为较大数，mn为较小数，那么需要尽可能的保证mx−mn∗2的值小，且大于0。再考虑最优情况就是整个数组都被消除完了，那么与第一个按照贪心匹配的就是中间的那个，从l=0枚举小值，r=len(nums)/2开始枚举大值，同向双指针，如果满足条件ans就加2，不满足则r继续右移。</p>
-<p>时间复杂度O(n),空间复杂度O(1)。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <br>    <br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxNumOfMarkedIndices</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>        Arrays.sort(nums);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> nums.length / <span class="hljs-number">2</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">l</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, r = k;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (l &lt; k &amp;&amp; r &lt; nums.length) &#123;<br>            <span class="hljs-keyword">if</span> (nums[l] * <span class="hljs-number">2</span> &lt;= nums[r]) &#123;<br>                ans += <span class="hljs-number">2</span>;<br>                l++;<br>                r++;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                r++;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>本道题目可以归为求最优子数组否和某个条件，对于这一类题目都可以使用双指针(滑动窗口)来解决。每次滑动都进行条件判断，如果符合，就进行答案更新。这里面有个判断是需要求滑动窗口的最大值的条件，可以使用平衡树解决,如Java中的TreeMap,因为有重复值，所有用TreeMap,如果没有重复值的话可以使用TreeSet,更优的解法就是使用单调队列，LC上有道固定窗口的原题。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maximumRobots</span><span class="hljs-params">(<span class="hljs-type">int</span>[] chargeTimes, <span class="hljs-type">int</span>[] runningCosts, <span class="hljs-type">long</span> budget)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, n = chargeTimes.length;<br>        TreeMap&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeMap</span>&lt;&gt;(Comparator.comparing(e -&gt; -e));<br>        <span class="hljs-type">long</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, l = <span class="hljs-number">0</span>; r &lt; n; r++) &#123;<br>            map.merge(chargeTimes[r], <span class="hljs-number">1</span>, Integer::sum);<br>            s += runningCosts[r];<br>            <span class="hljs-keyword">while</span> (l &lt; n &amp;&amp; l &lt;= r &amp;&amp; (<span class="hljs-type">long</span>) s * (r - l + <span class="hljs-number">1</span>) + map.firstKey() &gt; budget) &#123;<br>                <span class="hljs-type">int</span> <span class="hljs-variable">v</span> <span class="hljs-operator">=</span> chargeTimes[l];<br>                map.merge(v, -<span class="hljs-number">1</span>, Integer::sum);<br>                <span class="hljs-keyword">if</span> (map.get(v) == <span class="hljs-number">0</span>) map.remove(v);<br>                s -= runningCosts[l++];<br>            &#125;<br><br>            ans = Math.max(ans, r - l + <span class="hljs-number">1</span>);<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// 单调队列解法，单调队列一般适用于求某区间的单调最值</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">maximumRobots</span><span class="hljs-params">(chargeTimes []<span class="hljs-type">int</span>, runningCosts []<span class="hljs-type">int</span>, budget <span class="hljs-type">int64</span>)</span></span> <span class="hljs-type">int</span> &#123;<br>    <span class="hljs-keyword">var</span> q []<span class="hljs-type">int</span><br>    s := <span class="hljs-type">int64</span>(<span class="hljs-number">0</span>)<br>    l, n, ans := <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(chargeTimes), <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> r := <span class="hljs-number">0</span>; r &lt; n; r++ &#123;<br>        <span class="hljs-keyword">for</span> <span class="hljs-built_in">len</span>(q) &gt; <span class="hljs-number">0</span> &amp;&amp; chargeTimes[q[<span class="hljs-built_in">len</span>(q)<span class="hljs-number">-1</span>]] &lt;= chargeTimes[r] &#123;<br>            q = q[:<span class="hljs-built_in">len</span>(q)<span class="hljs-number">-1</span>]<br>        &#125;<br>        q = <span class="hljs-built_in">append</span>(q, r)<br>        s += <span class="hljs-type">int64</span>(runningCosts[r])<br>        <span class="hljs-keyword">for</span> <span class="hljs-built_in">len</span>(q) &gt; <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-type">int64</span>(chargeTimes[q[<span class="hljs-number">0</span>]]) + <span class="hljs-type">int64</span>((r-l+<span class="hljs-number">1</span>))*s &gt; budget &#123;<br>            <span class="hljs-keyword">if</span> q[<span class="hljs-number">0</span>] == l &#123;<br>                q = q[<span class="hljs-number">1</span>:]<br>            &#125;<br>            s -= <span class="hljs-type">int64</span>(runningCosts[l])<br>            l++<br>        &#125;<br>        ans = max(ans, r-l+<span class="hljs-number">1</span>)<br><br>    &#125;<br>    <span class="hljs-keyword">return</span> ans<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -366,8 +363,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LC9.12</div>
-      <div>http://example.com/2024/09/12/LC9-12/</div>
+      <div>LC9.13</div>
+      <div>http://example.com/2024/09/13/LC9-13/</div>
     </div>
     <div class="license-meta">
       
@@ -379,7 +376,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年9月12日</div>
+          <div>2024年9月13日</div>
         </div>
       
       
@@ -411,18 +408,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/09/13/LC9-13/" title="LC9.13">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LC9.13</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/09/11/LC9-11/" title="LC9.11">
-                        <span class="hidden-mobile">LC9.11</span>
+                      <a href="/2024/09/12/LC9-12/" title="LC9.12">
+                        <span class="hidden-mobile">LC9.12</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
