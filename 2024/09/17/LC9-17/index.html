@@ -16,16 +16,16 @@
   <meta name="author" content="ykexc">
   <meta name="keywords" content="">
   
-    <meta name="description" content="LC9-13 2398. 预算内的最多机器人数目 你有 n 个机器人，给你两个下标从 0 开始的整数数组 chargeTimes 和 runningCosts ，两者长度都为 n 。第 i 个机器人充电时间为 chargeTimes[i] 单位时间，花费 runningCosts[i] 单位时间运行。再给你一个整数 budget 。 运行 k 个机器人 总开销 是 max(chargeTimes)">
+    <meta name="description" content="LC9-17 815. 公交路线 给你一个数组 routes ，表示一系列公交线路，其中每个 routes[i] 表示一条公交线路，第 i 辆公交车将会在上面循环行驶。  例如，路线 routes[0] &#x3D; [1, 5, 7] 表示第 0 辆公交车会一直按序列 1 -&gt; 5 -&gt; 7 -&gt; 1 -&gt; 5 -&gt; 7 -&gt; 1 -&gt; ... 这样的车站路线行驶">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC9.13">
-<meta property="og:url" content="http://example.com/2024/09/13/LC9-13/index.html">
+<meta property="og:title" content="LC9.17">
+<meta property="og:url" content="http://example.com/2024/09/17/LC9-17/index.html">
 <meta property="og:site_name" content="ykexc">
-<meta property="og:description" content="LC9-13 2398. 预算内的最多机器人数目 你有 n 个机器人，给你两个下标从 0 开始的整数数组 chargeTimes 和 runningCosts ，两者长度都为 n 。第 i 个机器人充电时间为 chargeTimes[i] 单位时间，花费 runningCosts[i] 单位时间运行。再给你一个整数 budget 。 运行 k 个机器人 总开销 是 max(chargeTimes)">
+<meta property="og:description" content="LC9-17 815. 公交路线 给你一个数组 routes ，表示一系列公交线路，其中每个 routes[i] 表示一条公交线路，第 i 辆公交车将会在上面循环行驶。  例如，路线 routes[0] &#x3D; [1, 5, 7] 表示第 0 辆公交车会一直按序列 1 -&gt; 5 -&gt; 7 -&gt; 1 -&gt; 5 -&gt; 7 -&gt; 1 -&gt; ... 这样的车站路线行驶">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/yy77.jpg">
-<meta property="article:published_time" content="2024-09-13T14:09:52.342Z">
-<meta property="article:modified_time" content="2024-09-13T14:18:25.326Z">
+<meta property="article:published_time" content="2024-09-16T18:49:56.000Z">
+<meta property="article:modified_time" content="2024-09-16T18:51:59.285Z">
 <meta property="article:author" content="ykexc">
 <meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary_large_image">
@@ -33,7 +33,7 @@
   
   
   
-  <title>LC9.13 - ykexc</title>
+  <title>LC9.17 - ykexc</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="LC9.13"></span>
+            <span id="subtitle" data-typed-text="LC9.17"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-13 22:09" pubdate>
-          2024年9月13日 晚上
+        <time datetime="2024-09-17 02:49" pubdate>
+          2024年9月17日 凌晨
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          1.8k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          17 分钟
+          15 分钟
         
       </span>
     
@@ -294,30 +294,38 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">LC9.13</h1>
+            <h1 style="display: none">LC9.17</h1>
             
             
               <div class="markdown-body">
                 
-                <h1>LC9-13</h1>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-number-of-robots-within-budget/">2398. 预算内的最多机器人数目</a></p>
-<p>你有 <code>n</code> 个机器人，给你两个下标从 <strong>0</strong> 开始的整数数组 <code>chargeTimes</code> 和 <code>runningCosts</code> ，两者长度都为 <code>n</code> 。第 <code>i</code> 个机器人充电时间为 <code>chargeTimes[i]</code> 单位时间，花费 <code>runningCosts[i]</code> 单位时间运行。再给你一个整数 <code>budget</code> 。</p>
-<p>运行 <code>k</code> 个机器人 <strong>总开销</strong> 是 <code>max(chargeTimes) + k * sum(runningCosts)</code> ，其中 <code>max(chargeTimes)</code> 是这 <code>k</code> 个机器人中最大充电时间，<code>sum(runningCosts)</code> 是这 <code>k</code> 个机器人的运行时间之和。</p>
-<p>请你返回在 <strong>不超过</strong> <code>budget</code> 的前提下，你 <strong>最多</strong> 可以 <strong>连续</strong> 运行的机器人数目为多少。</p>
+                <h1>LC9-17</h1>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/bus-routes/">815. 公交路线</a></p>
+<p>给你一个数组 <code>routes</code> ，表示一系列公交线路，其中每个 <code>routes[i]</code> 表示一条公交线路，第 <code>i</code> 辆公交车将会在上面循环行驶。</p>
+<ul>
+<li>例如，路线 <code>routes[0] = [1, 5, 7]</code> 表示第 <code>0</code> 辆公交车会一直按序列 <code>1 -&gt; 5 -&gt; 7 -&gt; 1 -&gt; 5 -&gt; 7 -&gt; 1 -&gt; ...</code> 这样的车站路线行驶。</li>
+</ul>
+<p>现在从 <code>source</code> 车站出发（初始时不在公交车上），要前往 <code>target</code> 车站。 期间仅可乘坐公交车。</p>
+<p>求出 <strong>最少乘坐的公交车数量</strong> 。如果不可能到达终点车站，返回 <code>-1</code> 。</p>
 <p><strong>示例 1：</strong></p>
-<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：chargeTimes = [3,6,1,3,4], runningCosts = [2,1,3,4,5], budget = 25<br>输出：3<br>解释：<br>可以在 budget 以内运行所有单个机器人或者连续运行<span class="hljs-number"> 2 </span>个机器人。<br>选择前<span class="hljs-number"> 3 </span>个机器人，可以得到答案最大值<span class="hljs-number"> 3 </span>。总开销是 max(3,6,1) +<span class="hljs-number"> 3 </span>* sum(2,1,3) =<span class="hljs-number"> 6 </span>+<span class="hljs-number"> 3 </span>*<span class="hljs-number"> 6 </span>=<span class="hljs-number"> 24 </span>，小于<span class="hljs-number"> 25 </span>。<br>可以看出无法在 budget 以内连续运行超过<span class="hljs-number"> 3 </span>个机器人，所以我们返回<span class="hljs-number"> 3 </span>。<br></code></pre></td></tr></table></figure>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs lua">输入：routes = <span class="hljs-string">[[1,2,7],[3,6,7]]</span>, source = <span class="hljs-number">1</span>, target = <span class="hljs-number">6</span><br>输出：<span class="hljs-number">2</span><br>解释：最优策略是先乘坐第一辆公交车到达车站 <span class="hljs-number">7</span> , 然后换乘第二辆公交车到车站 <span class="hljs-number">6</span> 。 <br></code></pre></td></tr></table></figure>
 <p><strong>示例 2：</strong></p>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：chargeTimes = <span class="hljs-comment">[11,12,19]</span>, runningCosts = <span class="hljs-comment">[10,8,7]</span>, budget = 19<br>输出：0<br>解释：即使运行任何一个单个机器人，还是会超出 budget，所以我们返回 0 。<br></code></pre></td></tr></table></figure>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：routes = <span class="hljs-comment">[<span class="hljs-comment">[7,12]</span>,<span class="hljs-comment">[4,5,15]</span>,<span class="hljs-comment">[6]</span>,<span class="hljs-comment">[15,19]</span>,<span class="hljs-comment">[9,12,13]</span>]</span>, source = 15, target = 12<br>输出：-1<br></code></pre></td></tr></table></figure>
 <p><strong>提示：</strong></p>
 <ul>
-<li><code>chargeTimes.length == runningCosts.length == n</code></li>
-<li><code>1 &lt;= n &lt;= 5 * 104</code></li>
-<li><code>1 &lt;= chargeTimes[i], runningCosts[i] &lt;= 105</code></li>
-<li><code>1 &lt;= budget &lt;= 1015</code></li>
+<li><code>1 &lt;= routes.length &lt;= 500</code>.</li>
+<li><code>1 &lt;= routes[i].length &lt;= 105</code></li>
+<li><code>routes[i]</code> 中的所有值 <strong>互不相同</strong></li>
+<li><code>sum(routes[i].length) &lt;= 105</code></li>
+<li><code>0 &lt;= routes[i][j] &lt; 106</code></li>
+<li><code>0 &lt;= source, target &lt; 106</code></li>
 </ul>
-<p>本道题目可以归为求最优子数组否和某个条件，对于这一类题目都可以使用双指针(滑动窗口)来解决。每次滑动都进行条件判断，如果符合，就进行答案更新。这里面有个判断是需要求滑动窗口的最大值的条件，可以使用平衡树解决,如Java中的TreeMap,因为有重复值，所有用TreeMap,如果没有重复值的话可以使用TreeSet,更优的解法就是使用单调队列，LC上有道固定窗口的原题。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maximumRobots</span><span class="hljs-params">(<span class="hljs-type">int</span>[] chargeTimes, <span class="hljs-type">int</span>[] runningCosts, <span class="hljs-type">long</span> budget)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, n = chargeTimes.length;<br>        TreeMap&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeMap</span>&lt;&gt;(Comparator.comparing(e -&gt; -e));<br>        <span class="hljs-type">long</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, l = <span class="hljs-number">0</span>; r &lt; n; r++) &#123;<br>            map.merge(chargeTimes[r], <span class="hljs-number">1</span>, Integer::sum);<br>            s += runningCosts[r];<br>            <span class="hljs-keyword">while</span> (l &lt; n &amp;&amp; l &lt;= r &amp;&amp; (<span class="hljs-type">long</span>) s * (r - l + <span class="hljs-number">1</span>) + map.firstKey() &gt; budget) &#123;<br>                <span class="hljs-type">int</span> <span class="hljs-variable">v</span> <span class="hljs-operator">=</span> chargeTimes[l];<br>                map.merge(v, -<span class="hljs-number">1</span>, Integer::sum);<br>                <span class="hljs-keyword">if</span> (map.get(v) == <span class="hljs-number">0</span>) map.remove(v);<br>                s -= runningCosts[l++];<br>            &#125;<br><br>            ans = Math.max(ans, r - l + <span class="hljs-number">1</span>);<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// 单调队列解法，单调队列一般适用于求某区间的单调最值</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">maximumRobots</span><span class="hljs-params">(chargeTimes []<span class="hljs-type">int</span>, runningCosts []<span class="hljs-type">int</span>, budget <span class="hljs-type">int64</span>)</span></span> <span class="hljs-type">int</span> &#123;<br>    <span class="hljs-keyword">var</span> q []<span class="hljs-type">int</span><br>    s := <span class="hljs-type">int64</span>(<span class="hljs-number">0</span>)<br>    l, n, ans := <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(chargeTimes), <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> r := <span class="hljs-number">0</span>; r &lt; n; r++ &#123;<br>        <span class="hljs-keyword">for</span> <span class="hljs-built_in">len</span>(q) &gt; <span class="hljs-number">0</span> &amp;&amp; chargeTimes[q[<span class="hljs-built_in">len</span>(q)<span class="hljs-number">-1</span>]] &lt;= chargeTimes[r] &#123;<br>            q = q[:<span class="hljs-built_in">len</span>(q)<span class="hljs-number">-1</span>]<br>        &#125;<br>        q = <span class="hljs-built_in">append</span>(q, r)<br>        s += <span class="hljs-type">int64</span>(runningCosts[r])<br>        <span class="hljs-keyword">for</span> <span class="hljs-built_in">len</span>(q) &gt; <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-type">int64</span>(chargeTimes[q[<span class="hljs-number">0</span>]]) + <span class="hljs-type">int64</span>((r-l+<span class="hljs-number">1</span>))*s &gt; budget &#123;<br>            <span class="hljs-keyword">if</span> q[<span class="hljs-number">0</span>] == l &#123;<br>                q = q[<span class="hljs-number">1</span>:]<br>            &#125;<br>            s -= <span class="hljs-type">int64</span>(runningCosts[l])<br>            l++<br>        &#125;<br>        ans = max(ans, r-l+<span class="hljs-number">1</span>)<br><br>    &#125;<br>    <span class="hljs-keyword">return</span> ans<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>通常在某一连通环境下求最小值都可以使用广度优先搜索，由于本题的routes.length较小，可以把它当作一个核心维度，考虑是否访问过。那么本题几乎就是个广搜的模板题了。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">numBusesToDestination</span><span class="hljs-params">(routes [][]<span class="hljs-type">int</span>, source <span class="hljs-type">int</span>, target <span class="hljs-type">int</span>)</span></span> <span class="hljs-type">int</span> &#123;<br>	n := <span class="hljs-built_in">len</span>(routes)<br>	<span class="hljs-keyword">if</span> n == <span class="hljs-number">0</span> || <span class="hljs-built_in">len</span>(routes[<span class="hljs-number">0</span>]) == <span class="hljs-number">0</span> &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">-1</span><br>	&#125;<br>    <span class="hljs-keyword">if</span> source == target &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>    &#125;<br><br>	g := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>][]<span class="hljs-type">int</span>)<br><br>	<span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; n; i++ &#123;<br>		<span class="hljs-keyword">for</span> _, station := <span class="hljs-keyword">range</span> routes[i] &#123;<br>			g[station] = <span class="hljs-built_in">append</span>(g[station], i)<br>		&#125;<br>	&#125;<br><br>	<span class="hljs-keyword">type</span> Pair <span class="hljs-keyword">struct</span> &#123;<br>		e <span class="hljs-type">int</span><br>		k <span class="hljs-type">int</span><br>	&#125;<br><br>	<span class="hljs-keyword">var</span> q []Pair<br>	s1 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>]<span class="hljs-keyword">struct</span>&#123;&#125;)<br>	s2 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>]<span class="hljs-keyword">struct</span>&#123;&#125;)<br>	<span class="hljs-keyword">for</span> _, v := <span class="hljs-keyword">range</span> g[source] &#123;<br>		<span class="hljs-keyword">if</span> _, o := s2[v]; !o &#123;<br>			s2[v] = <span class="hljs-keyword">struct</span>&#123;&#125;&#123;&#125;<br>			<span class="hljs-keyword">for</span> _, vv := <span class="hljs-keyword">range</span> routes[v] &#123;<br>				<span class="hljs-keyword">if</span> _, ok := s1[vv]; !ok &#123;<br>					s1[vv] = <span class="hljs-keyword">struct</span>&#123;&#125;&#123;&#125;<br>					q = <span class="hljs-built_in">append</span>(q, Pair&#123;vv, <span class="hljs-number">1</span>&#125;)<br>				&#125;<br>			&#125;<br>		&#125;<br><br>	&#125;<br><br>	<span class="hljs-keyword">for</span> <span class="hljs-built_in">len</span>(q) &gt; <span class="hljs-number">0</span> &#123;<br>		pair := q[<span class="hljs-number">0</span>]<br>		q = q[<span class="hljs-number">1</span>:]<br><br>		<span class="hljs-keyword">if</span> pair.e == target &#123;<br>			<span class="hljs-keyword">return</span> pair.k<br>		&#125;<br><br>		<span class="hljs-keyword">for</span> _, v := <span class="hljs-keyword">range</span> g[pair.e] &#123;<br>			<span class="hljs-keyword">if</span> _, o := s2[v]; !o &#123;<br>				s2[v] = <span class="hljs-keyword">struct</span>&#123;&#125;&#123;&#125;<br>				<span class="hljs-keyword">for</span> _, vv := <span class="hljs-keyword">range</span> routes[v] &#123;<br>					<span class="hljs-keyword">if</span> _, ok := s1[vv]; !ok &#123;<br>						s1[vv] = <span class="hljs-keyword">struct</span>&#123;&#125;&#123;&#125;<br>						q = <span class="hljs-built_in">append</span>(q, Pair&#123;vv, pair.k + <span class="hljs-number">1</span>&#125;)<br>					&#125;<br>				&#125;<br>			&#125;<br><br>		&#125;<br>	&#125;<br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">-1</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<ul>
+<li>时间复杂度: O(nm),n为线路个数，m为车站个数</li>
+<li>空间复杂度: O(nm)</li>
+</ul>
 
                 
               </div>
@@ -363,8 +371,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LC9.13</div>
-      <div>http://example.com/2024/09/13/LC9-13/</div>
+      <div>LC9.17</div>
+      <div>http://example.com/2024/09/17/LC9-17/</div>
     </div>
     <div class="license-meta">
       
@@ -376,7 +384,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年9月13日</div>
+          <div>2024年9月17日</div>
         </div>
       
       
@@ -408,18 +416,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/09/17/LC9-17/" title="LC9.17">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LC9.17</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/09/12/LC9-12/" title="LC9.12">
-                        <span class="hidden-mobile">LC9.12</span>
+                      <a href="/2024/09/13/LC9-13/" title="LC9.13">
+                        <span class="hidden-mobile">LC9.13</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
