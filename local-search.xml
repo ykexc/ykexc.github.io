@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>LC9.18</title>
+    <link href="/2024/09/18/LC9-18/"/>
+    <url>/2024/09/18/LC9-18/</url>
+    
+    <content type="html"><![CDATA[<h1>LC9-18</h1><p><a href="https://leetcode.cn/problems/the-latest-time-to-catch-a-bus/">2332. 坐上公交的最晚时间</a></p><p>给你一个下标从 <strong>0</strong> 开始长度为 <code>n</code> 的整数数组 <code>buses</code> ，其中 <code>buses[i]</code> 表示第 <code>i</code> 辆公交车的出发时间。同时给你一个下标从 <strong>0</strong> 开始长度为 <code>m</code> 的整数数组 <code>passengers</code> ，其中 <code>passengers[j]</code> 表示第 <code>j</code> 位乘客的到达时间。所有公交车出发的时间互不相同，所有乘客到达的时间也互不相同。</p><p>给你一个整数 <code>capacity</code> ，表示每辆公交车 <strong>最多</strong> 能容纳的乘客数目。</p><p>每位乘客都会搭乘下一辆有座位的公交车。如果你在 <code>y</code> 时刻到达，公交在 <code>x</code> 时刻出发，满足 <code>y &lt;= x</code> 且公交没有满，那么你可以搭乘这一辆公交。<strong>最早</strong> 到达的乘客优先上车。</p><p>返回你可以搭乘公交车的最晚到达公交站时间。你 <strong>不能</strong> 跟别的乘客同时刻到达。</p><p>**注意：**数组 <code>buses</code> 和 <code>passengers</code> 不一定是有序的。</p><p><strong>示例 1：</strong></p><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：buses = [10,20], passengers = [2,17,18,19], capacity = 2<br>输出：16<br>解释：<br>第<span class="hljs-number"> 1 </span>辆公交车载着第<span class="hljs-number"> 1 </span>位乘客。<br>第<span class="hljs-number"> 2 </span>辆公交车载着你和第<span class="hljs-number"> 2 </span>位乘客。<br>注意你不能跟其他乘客同一时间到达，所以你必须在第二位乘客之前到达。<br></code></pre></td></tr></table></figure><p><strong>示例 2：</strong></p><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs tap">输入：buses = [20,30,10], passengers = [19,13,26,4,25,11,21], capacity = 2<br>输出：20<br>解释：<br>第<span class="hljs-number"> 1 </span>辆公交车载着第<span class="hljs-number"> 4 </span>位乘客。<br>第<span class="hljs-number"> 2 </span>辆公交车载着第<span class="hljs-number"> 6 </span>位和第<span class="hljs-number"> 2 </span>位乘客。<br>第<span class="hljs-number"> 3 </span>辆公交车载着第<span class="hljs-number"> 1 </span>位乘客和你。<br></code></pre></td></tr></table></figure><p><strong>提示：</strong></p><ul><li><code>n == buses.length</code></li><li><code>m == passengers.length</code></li><li><code>1 &lt;= n, m, capacity &lt;= 105</code></li><li><code>2 &lt;= buses[i], passengers[i] &lt;= 109</code></li><li><code>buses</code> 中的元素 <strong>互不相同</strong> 。</li><li><code>passengers</code> 中的元素 <strong>互不相同</strong> 。</li></ul><p>要实现最晚上车有两种情况，第一种是车都有人做的情况下，插队到最后一个人的前面，第二种情况，车没坐满的情况下，卡点上车。由于不能重复别人的上车时间，所以需要用set来判断下。</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">latestTimeCatchTheBus</span><span class="hljs-params">(buses []<span class="hljs-type">int</span>, passengers []<span class="hljs-type">int</span>, capacity <span class="hljs-type">int</span>)</span></span> (ans <span class="hljs-type">int</span>) &#123;<br>sort.Ints(buses)<br>sort.Ints(passengers)<br>set := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-type">int</span>]<span class="hljs-keyword">struct</span>&#123;&#125;)<br><span class="hljs-keyword">for</span> _, passenger := <span class="hljs-keyword">range</span> passengers &#123;<br>set[passenger] = <span class="hljs-keyword">struct</span>&#123;&#125;&#123;&#125;<br>&#125;<br>i := <span class="hljs-number">0</span><br>m := <span class="hljs-built_in">len</span>(passengers)<br><span class="hljs-keyword">for</span> _, bus := <span class="hljs-keyword">range</span> buses &#123;<br>k := capacity<br><span class="hljs-keyword">for</span> i &lt; m &amp;&amp; k &gt; <span class="hljs-number">0</span> &amp;&amp; passengers[i] &lt;= bus &#123;<br><span class="hljs-keyword">if</span> _, ok := set[passengers[i]<span class="hljs-number">-1</span>]; !ok &#123;<br>ans = passengers[i] - <span class="hljs-number">1</span><br>&#125;<br>k--<br>i++<br>&#125;<br><span class="hljs-keyword">if</span> k &gt; <span class="hljs-number">0</span> &#123;<br><span class="hljs-keyword">if</span> _, ok := set[bus]; !ok &#123;<br>ans = bus<br>&#125;<br>&#125;<br>&#125;<br><span class="hljs-keyword">return</span><br>&#125;<br></code></pre></td></tr></table></figure><ul><li>时间复杂度: O(nlogn+nlogm)</li><li>空间复杂度: O(1)</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>leetcode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LC9.17</title>
     <link href="/2024/09/17/LC9-17/"/>
     <url>/2024/09/17/LC9-17/</url>
